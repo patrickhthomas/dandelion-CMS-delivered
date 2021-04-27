@@ -3,7 +3,9 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
+  padding-bottom: 2em;
   display: grid;
+  position: relative;
   grid-gap: 1em;
   align-content: start;
   grid-template-columns: 1fr 1fr 1fr;
@@ -21,33 +23,48 @@ const Title = styled.h1`
 `
 
 const Blurb = styled.p`
-  z-index: 1;
+  z-index: 2;
   grid-column: 1 / 4;
   grid-row: 4 / 5;
 `
 
-const HeroImg = styled(Img)`
-  position: absolute;
+const HeroImg = styled.div`
+  z-index: 1;
   grid-column: 1 / 4;
   grid-row: 1 / 5; 
-  ::after {
-    content: "";
-    top: 0;
-    left: 0;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  margin-top: -3em;
+  margin-bottom: -1em;
+  img {
+   position: absolute;
+   height: 120%;
+   filter: grayscale(100%) contrast(150%) blur(0px);
+  }
+  ::before {
+    z-index: 1;
+    grid-column: 1 / 4;
+    grid-row: 1 / 5; 
+    position: absolute;
+    content: '';
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-color: ${props => props.theme.colors.highlight};
-    z-index: 0;
-    mix-blend-mode: overlay;
-    backdrop-filter: blur(.1em);
+    top: 0;
+    left: 0;
+    background-color: ${props => props.theme.colors.background};
+    mix-blend-mode: normal;
+    filter: opacity(.8);
   }
   
   @media (min-width: ${props => props.theme.responsive.small}) {
-    opacity: 100%;
-    grid-column: 2 / 4;
-    grid-row: 1 / 3;
-    max-width: 100%;
+
+  img {
+   position: absolute;
+   width: 100%;
+   height: auto;
+  }
+    
   }
 `
 
@@ -66,12 +83,7 @@ const Tagline = styled.h3`
 
 const Hero = props => (
   <Wrapper>
-    <HeroImg 
-      alt={props.alt}
-      fluid={props.image.fluid}
-      fadeIn={true}
-      durationFadeIn={500}
-    />
+    <HeroImg><img src={props.image.file.url} alt={props.alt} /></HeroImg>
     <Title>{props.title}</Title>
     <Subtitle>{props.subtitle}</Subtitle>
     <Tagline>{props.tagline}</Tagline>

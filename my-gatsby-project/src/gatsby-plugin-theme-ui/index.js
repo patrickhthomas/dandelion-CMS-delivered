@@ -8,6 +8,7 @@ export default {
     secondary: '#F1EBF9',
     tertiary: '#F2F2F3',
     highlight: '#7136BA',
+    yellow: '#FFD13A',
   },
   fonts: {
     body:
@@ -20,7 +21,7 @@ export default {
       'Sonder-Sans-Black',
   },
   sizes: {
-    maxWidth: '1050px',
+    maxWidth: '1260px',
     maxWidthCentered: '650px',
   },
   responsive: {

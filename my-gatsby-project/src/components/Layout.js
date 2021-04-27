@@ -5,8 +5,11 @@ import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 import { globalStyles } from '../styles/globalStyles.js'
 
+
+
 const Root = styled.div`
-  p {
+  p,
+  li {
     font-family: ${props => props.theme.fonts.body};
     font-size: 1em;
     line-height: 140%;
@@ -51,7 +54,15 @@ const Root = styled.div`
     font-family: ${props => props.theme.fonts.body};
     font-size: 1em;
   }
-  overflow: hidden;
+  overflow-x: hidden;
+  ul,
+  li {
+    list-style: none;
+  }
+  section {
+    max-width: ${props => props.theme.sizes.maxWidth};
+    margin: auto;
+  }
 `
 
 const Skip = styled.a`
@@ -80,6 +91,7 @@ const Layout = props => {
     }
   }
   useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
+
 
   return (
     <Root className="siteRoot">

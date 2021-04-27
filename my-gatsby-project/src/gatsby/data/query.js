@@ -30,4 +30,16 @@ module.exports.data = {
       }
     }
   }`,
+  days: `{
+    allContentfulDay(sort: {fields: tag, order: ASC}) {
+      edges {
+        node {
+          dayOfWeek
+          closeTime
+          areYouOpen
+          openTime
+        }
+      }
+    }
+  }`
 }
