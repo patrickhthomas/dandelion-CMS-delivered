@@ -3,10 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Section1 from '../components/Section1'
-import CardList from '../components/CardList'
-import Card from '../components/Card'
+import Section2 from '../components/Section2'
 import Container from '../components/Container'
-import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 
@@ -37,6 +35,10 @@ const Landing = ({ data, pageContext }) => {
   const days = data.allContentfulDay.edges
   const isOpen = data.allContentfulDay.edges
 
+  //establishes variables for Section 2, product previews
+  const subSection1 = data.contentfulSection2.subsection1
+  const subSection2 = data.contentfulSection2.subsection2
+
   return (
     <Layout>
       <SEO title={startCase(basePath)}/>
@@ -51,6 +53,21 @@ const Landing = ({ data, pageContext }) => {
         />
         <Section1 
           title={section1Title}
+          days={days}
+          isOpen={isOpen}
+          address={streetNumberName}
+          city={cityStateZip}
+          map={map}
+          link={link}
+        />
+        <Section2 
+          title={data.contentfulSection2.title}
+          subSection1Title={subSection1.title}
+          subSection1Desc={subSection1.description}
+          teahouseProduct={subSection1.products}
+          subSection2Title={subSection2.title}
+          subSection2Desc={subSection2.description}
+          apothecaryProduct={subSection2.products}
           days={days}
           isOpen={isOpen}
           address={streetNumberName}
@@ -104,6 +121,45 @@ query MyQuery {
         closeTime
         areYouOpen
         openTime
+      }
+    }
+  }
+  contentfulSection2 {
+    title
+    subsection1 {
+      linkToProductPage
+      title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
+      products {
+        productName
+        productImage {
+          file {
+            url
+          }
+          description
+        }
+      }
+    }
+    subsection2 {
+      linkToProductPage
+      title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
+      products {
+        productName
+        productImage {
+          file {
+            url
+          }
+          description
+        }
       }
     }
   }
