@@ -55,7 +55,7 @@ const Map = styled.div`
 
 const Hours = styled.ul`
 display: grid;
-grid-template-columns: 20em
+grid-template-columns: 20em;
 grid-template-rows: auto;
 grid-gap: 1em;
 `

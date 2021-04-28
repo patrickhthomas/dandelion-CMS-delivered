@@ -9,6 +9,7 @@ export default {
     tertiary: '#F2F2F3',
     highlight: '#7136BA',
     yellow: '#FFD13A',
+    fadedPurple: 'hsla(267, 55%, 20%, 0.7)',
   },
   fonts: {
     body:
