@@ -18,7 +18,7 @@ const NotFoundPage = () => (
   <Layout>
     <SEO title="404" description="Page Not Found" />
     <Container>
-      <PageTitle>Page Not Found</PageTitle>
+      <PageTitle>Page Doesn't Exist, SORRY!!</PageTitle>
       <Text>
         Please return <Link to="/">home</Link> or use the menu to navigate to a
         different page.
