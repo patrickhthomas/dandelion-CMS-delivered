@@ -95,10 +95,6 @@ query MyQuery {
       blurb
     }
     heroImage {
-      fluid {
-        tracedSVG
-        aspectRatio
-      }
       file {
         url
       }
