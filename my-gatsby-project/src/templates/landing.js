@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Section1 from '../components/Section1'
 import Section2 from '../components/Section2'
+import Events from '../components/Events'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
@@ -38,6 +39,9 @@ const Landing = ({ data, pageContext }) => {
   //establishes variables for Section 2, product previews
   const subSection1 = data.contentfulSection2.subsection1
   const subSection2 = data.contentfulSection2.subsection2
+
+  //establishes variables for Events
+  const events = data.allContentfulEvent.edges
 
   return (
     <Layout>
@@ -75,6 +79,10 @@ const Landing = ({ data, pageContext }) => {
           map={map}
           link={link}
         />
+        <Events
+          events={events}
+        />
+
       </Container>
     </Layout>
   )
@@ -155,6 +163,26 @@ query MyQuery {
       products {
         productName
         productImage {
+          file {
+            url
+          }
+          description
+        }
+      }
+    }
+  }
+  allContentfulEvent(sort: {fields: startTime, order: ASC}) {
+    edges {
+      node {
+        description {
+          childMarkdownRemark {
+            html
+          }
+        }
+        startTime
+        endTime
+        title
+        image {
           file {
             url
           }
