@@ -32,25 +32,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO
-        title={title}
-        description={
-          metaDescription
-            ? metaDescription.internal.content
-            : body.childMarkdownRemark.excerpt
-        }
-        image={ogImage}
-      />
-      <Hero title={title} image={heroImage} height={'50vh'} />
-      <Container>
-        {tags && <TagList tags={tags} basePath={basePath} />}
-        <PostDetails
-          date={publishDate}
-          timeToRead={body.childMarkdownRemark.timeToRead}
-        />
-        <PageBody body={body} />
-      </Container>
-      <PostLinks previous={previous} next={next} basePath={basePath} />
+<div>HELLO ITS POST!!</div>
     </Layout>
   )
 }

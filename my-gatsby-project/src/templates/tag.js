@@ -34,24 +34,7 @@ const TagTemplate = ({ data, pageContext }) => {
   return (
     <>
       <Layout>
-        <SEO
-          title={`Tag: ${startCase(title)}`}
-          description={`Posts Tagged: ${startCase(title)}`}
-          image={ogImage}
-        />
-        <Container>
-          <PageTitle small>
-            {numberOfPosts} Posts Tagged: &ldquo;
-            {title}
-            &rdquo;
-          </PageTitle>
-          <CardList>
-            {posts.slice(skip, limit * humanPageNumber).map(post => (
-              <Card {...post} key={post.id} basePath={basePath} />
-            ))}
-          </CardList>
-        </Container>
-        <Pagination context={pageContext} />
+<div>HI IT IS TAGGGSSS</div>
       </Layout>
     </>
   )
