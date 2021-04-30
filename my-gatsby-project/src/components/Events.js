@@ -82,28 +82,42 @@ function ConvertDate(props) {
 
 function ConvertStartTime(props) {
     let ogTime = props.start.substring(11,13);
-    var integer = parseInt(ogTime, 10);
-    var newTime = (integer - 7);
-    var amPm = '';
-    if (integer >= 12 && newTime < 12) {
-        amPm = 'PM';
-    } else {
-        amPm = 'AM';
+    var simpleTime = parseInt(ogTime, 10);
+    const amPm = (simpleTime < 12 && simpleTime!= 12) ? 'AM' : 'PM';
+    if (simpleTime < 12 && simpleTime!= 0) {
+        var newTime = simpleTime;
+    } else if (simpleTime > 12) {
+        newTime = (simpleTime - 12);
+    } else if (simpleTime = 12) {
+        newTime = simpleTime;
+    } else if (simpleTime = 0) {
+        newTime = 12;
     }
-    return <p>Starts at { newTime }{amPm} PST</p>
+
+
+
+    
+    return <p>From { newTime }{amPm} </p>
 }
 
 function ConvertEndTime(props) {
     let ogTime = props.end.substring(11,13);
-    var integer = parseInt(ogTime, 10);
-    var newTime = (integer - 7);
-    var amPm = '';
-    if (integer >= 12 && newTime < 12) {
-        amPm = 'AM';
-    } else {
-        amPm = 'PM';
+    var simpleTime = parseInt(ogTime, 10);
+    const amPm = (simpleTime < 12 && simpleTime!= 12) ? 'AM' : 'PM';
+    if (simpleTime < 12 && simpleTime!= 0) {
+        var newTime = simpleTime;
+    } else if (simpleTime > 12) {
+        newTime = (simpleTime - 12);
+    } else if (simpleTime = 12) {
+        newTime = simpleTime;
+    } else if (simpleTime = 0) {
+        newTime = 12;
     }
-    return <p>Ends at { newTime }{amPm} PST</p>
+
+
+
+    
+    return <p>to { newTime }{amPm} (PST)</p>
 }
 
 
@@ -122,6 +136,7 @@ const Events = props => (
             <h3>{node.title}</h3>
         </div>
         <div>
+          <h2></h2>
           <ConvertStartTime start={node.startTime} />
         </div>
         <div>
@@ -131,9 +146,7 @@ const Events = props => (
             <img src={node.image.file.url} alt={node.image.description} />
         </div>
         <div>
-            <p dangerouslySetInnerHTML={{
-                __html: node.description.childMarkdownRemark.html
-              }}/>
+            <p>{node.description.internal.content}</p>
         </div>
       </Event>
     ))}

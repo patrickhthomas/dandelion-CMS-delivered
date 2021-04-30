@@ -8,16 +8,11 @@ import Pin from '../components/Icons/pin'
 
 const Wrapper = styled.section`
   max-width: 100%;
- .divider{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2em;
-    @media (min-width: ${props => props.theme.responsive.medium}) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
- }
-
+.htmlContainer {
+  p {
+    padding: 0;
+  }
+}
   .location{
     width: 100%;
     display: grid;
@@ -43,20 +38,14 @@ const Title = styled.h2`
   margin-bottom: 1em;
 `
 
-const Address = styled.h3`
-`
 
-const Map = styled.div`
-  max-width: 100%;
-  grid-column: 1 / 3;
-  img {
-      width: 100%;
-  }
-`
 const Products = styled.div`
   display: grid;
   grid-template-rows: auto auto auto;
   grid-gap: .5em;
+  @media (min-width: ${props => props.theme.responsive.small}) {
+
+  }
 `
 
 const Product = styled.div`
@@ -100,6 +89,7 @@ div {
  }
   @media (min-width: ${props => props.theme.responsive.small}) {
     border-radius: .5em;
+
   }
 `
 
@@ -108,8 +98,10 @@ const Section2 = props => (
 
   <Wrapper>
     <Title>{props.title}</Title>
-    <h2>{props.subSection1Title}</h2>
-    <p dangerouslySetInnerHTML={{ __html: props.subSection1Desc.childMarkdownRemark.html }}></p>
+    <h3>{props.subSection1Title}</h3>
+
+      <p>{props.subSection1Desc.internal.content}</p>
+
     {props.teahouseProduct.map(({ productImage, productName }) => (
     <Products>
       <Product>
@@ -121,7 +113,7 @@ const Section2 = props => (
     ))}
 
     <h2>{props.subSection2Title}</h2>
-    <p dangerouslySetInnerHTML={{ __html: props.subSection2Desc.childMarkdownRemark.html }}></p>
+    <p>{props.subSection2Desc.internal.content}</p>
     {props.apothecaryProduct.map(({ productImage, productName }) => (
     <Products>
       <Product>

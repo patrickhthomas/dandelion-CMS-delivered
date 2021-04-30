@@ -134,8 +134,8 @@ query MyQuery {
       linkToProductPage
       title
       description {
-        childMarkdownRemark {
-          html
+        internal {
+          content
         }
       }
       products {
@@ -152,8 +152,8 @@ query MyQuery {
       linkToProductPage
       title
       description {
-        childMarkdownRemark {
-          html
+        internal {
+          content
         }
       }
       products {
@@ -170,11 +170,11 @@ query MyQuery {
   allContentfulEvent(sort: {fields: startTime, order: ASC}) {
     edges {
       node {
-        description {
-          childMarkdownRemark {
-            html
-          }
+      description {
+        internal {
+          content
         }
+      }
         startTime
         endTime
         title
