@@ -17,10 +17,10 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
+    title: 'Dandelion',
     description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com',
+      'Dandelion, a community teahouse and apothecary in Vancouver Washington',
+    siteUrl: 'https://www.dandelionteahouse.com',
     image: '/images/share.jpg',
     menuLinks: [
       {

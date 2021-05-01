@@ -4,12 +4,9 @@ import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
   padding-bottom: 3em;
-  display: grid;
-  position: relative;
-  grid-gap: .5em;
-  align-content: start;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+  display: flex;
+  grid-gap: 1em;
+  flex-direction: column;
   @media (min-width: ${props => props.theme.responsive.small}) {
     max-width: ${props => props.theme.sizes.maxWidthCentered}; 
     height: ${props => props.height || 'auto'};
@@ -117,24 +114,21 @@ const HeroImg = styled.div`
 
 const Subtitle = styled.h2`
   z-index: 1;
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
+
 `
-const Tagline = styled.h3`
+const ContactLine = styled.h3`
   z-index: 1;
-  grid-column: 1 / 5;
-  grid-row: 3 / 4;
+
 `
 
-const Hero = props => (
+const ContactCard = props => (
   <Wrapper>
-    <Title>{props.title}</Title>
-    <HeroImg><img src={props.image.file.url} alt={props.alt} /></HeroImg>
-    <Title>{props.title}</Title>
-    <Subtitle>{props.subtitle}</Subtitle>
-    <Tagline>{props.tagline}</Tagline>
-    <Blurb>{props.blurb}</Blurb>
+    <Subtitle>Contact us</Subtitle>
+    <ContactLine>{props.info.email}</ContactLine>
+    <ContactLine>{props.info.phoneNumber}</ContactLine>
+    <ContactLine><a target="_blank" rel="noopener noreferrer" href={props.info.instagram}>Instagram</a></ContactLine>
+    <ContactLine><a target="_blank" rel="noopener noreferrer" href={props.info.facebook}>Facebook</a></ContactLine>
   </Wrapper>
 )
 
-export default Hero
+export default ContactCard

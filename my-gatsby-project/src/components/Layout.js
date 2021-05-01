@@ -8,6 +8,7 @@ import { globalStyles } from '../styles/globalStyles.js'
 
 
 const Root = styled.div`
+ 
   p,
   li {
     font-family: ${props => props.theme.fonts.body};
@@ -19,7 +20,7 @@ const Root = styled.div`
     color: ${props => props.theme.colors.text};
   }
   h1 {
-    font-family: ${props => props.theme.fonts.header};
+    font-family: ${props => props.theme.fonts.headerBold};
     font-size: 2.5em;
     line-height: 150%;
     letter-spacing: .025em;

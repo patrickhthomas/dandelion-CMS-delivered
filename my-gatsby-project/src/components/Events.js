@@ -8,6 +8,11 @@ import { convertTime } from '../hooks/convert-time'
 
 
 const Wrapper = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 100%;
+  grid-gap: 2em;
+  padding-bottom: 3em;
  .divider{
   display: grid;
   grid-template-columns: 1fr;
@@ -38,38 +43,51 @@ const Wrapper = styled.section`
   clock {
       grid-column: 1 / 1;
   }
+   .moreEventsLink {
+   justify-self: end;
+ }
 `
 const Title = styled.h2`
   margin-bottom: 1em;
 `
 
-const Address = styled.h3`
-`
-
-const Map = styled.div`
-  max-width: 100%;
-  grid-column: 1 / 3;
-  img {
-      width: 100%;
-  }
-`
-
-const Hours = styled.ul`
-display: grid;
-grid-template-columns: 20em;
-grid-template-rows: auto;
-grid-gap: 1em;
-`
 
 const Event = styled.div`
-width: 100%;
 display: flex;
 flex-direction: column;
-padding-bottom: 3em;
+flex: 1 1 auto;
  img {
   width: 100%;
  }
- 
+
+ .description {
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+ }
+  @media (min-width: ${props => props.theme.responsive.small}) {
+   .eventTitle {
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+ }
+  }
+`
+const EventList = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2em;
+  @media (min-width: ${props => props.theme.responsive.small}) {
+    grid-gap: 1em;
+  }
+  @media (min-width: ${props => props.theme.responsive.medium}) {
+    display: flex;
+  }
 `
 function ConvertDate(props) {
     let ogMonth = props.date.substring(5,7);
@@ -80,7 +98,21 @@ function ConvertDate(props) {
     return <h2> {newMonth}.{newDay} </h2>
 }
 
-function ConvertStartTime(props) {
+
+function ConvertTime(props) {
+    let ogEndTime = props.end.substring(11,13);
+    var simpleEndTime = parseInt(ogEndTime, 10);
+    const amPmEnd = (simpleEndTime < 12 && simpleEndTime!= 12) ? 'AM' : 'PM';
+    if (simpleEndTime < 12 && simpleEndTime!= 0) {
+        var newEndTime = simpleEndTime;
+    } else if (simpleEndTime > 12) {
+        newEndTime = (simpleEndTime - 12);
+    } else if (simpleEndTime = 12) {
+        newEndTime = simpleEndTime;
+    } else if (simpleEndTime = 0) {
+        newEndTime = 12;
+    }
+
     let ogTime = props.start.substring(11,13);
     var simpleTime = parseInt(ogTime, 10);
     const amPm = (simpleTime < 12 && simpleTime!= 12) ? 'AM' : 'PM';
@@ -93,31 +125,7 @@ function ConvertStartTime(props) {
     } else if (simpleTime = 0) {
         newTime = 12;
     }
-
-
-
-    
-    return <p>From { newTime }{amPm} </p>
-}
-
-function ConvertEndTime(props) {
-    let ogTime = props.end.substring(11,13);
-    var simpleTime = parseInt(ogTime, 10);
-    const amPm = (simpleTime < 12 && simpleTime!= 12) ? 'AM' : 'PM';
-    if (simpleTime < 12 && simpleTime!= 0) {
-        var newTime = simpleTime;
-    } else if (simpleTime > 12) {
-        newTime = (simpleTime - 12);
-    } else if (simpleTime = 12) {
-        newTime = simpleTime;
-    } else if (simpleTime = 0) {
-        newTime = 12;
-    }
-
-
-
-    
-    return <p>to { newTime }{amPm} (PST)</p>
+    return <p>From { newTime }{amPm} to { newEndTime }{amPmEnd} (PST)</p>
 }
 
 
@@ -129,27 +137,24 @@ const Events = props => (
 
   <Wrapper>
     <Title>Events</Title>
+    <EventList>
     {props.events.map(({ node }, i) => (
       <Event>
         <div>
-            <ConvertDate date={node.startTime} />
-            <h3>{node.title}</h3>
-        </div>
-        <div>
-          <h2></h2>
-          <ConvertStartTime start={node.startTime} />
-        </div>
-        <div>
-          <ConvertEndTime end={node.endTime} />
+          <ConvertDate date={node.startTime} />
+          <ConvertTime start={node.startTime} end={node.endTime} />
+          <h3 class="eventTitle">{node.title}</h3>
         </div>
         <div>
             <img src={node.image.file.url} alt={node.image.description} />
         </div>
-        <div>
+        <div class="description">
             <p>{node.description.internal.content}</p>
         </div>
       </Event>
     ))}
+    </EventList>
+    <div class="moreEventsLink"><p>View all food and drink options &gt;</p></div>
   </Wrapper>
 )
 

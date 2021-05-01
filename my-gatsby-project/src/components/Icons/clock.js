@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaClock } from 'react-icons/fa';
+import { TiTime } from 'react-icons/ti';
 
 class Clock extends React.Component {
     render() {
-        return <h2><FaClock /></h2>
+        return <h2><TiTime /></h2>
     }
 }
 

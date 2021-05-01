@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaLocationArrow } from 'react-icons/fa';
+import { TiPinOutline } from 'react-icons/ti';
 
 class Pin extends React.Component {
     render() {
-        return <h2><FaLocationArrow /></h2>
+        return <h2><TiPinOutline /></h2>
     }
 }
 

@@ -97,6 +97,7 @@ export const globalStyles = css`
   /* Added to Fix Footer to bottom of viewport */
   html,
   body {
+    width: 100vw;
     background: white;
     height: 100%;
   }
@@ -206,7 +207,7 @@ export const globalStyles = css`
   body:not(.user-is-tabbing) a:focus {
     outline: none;
   }
-
+  
 /* font styles */
   h1{
     

@@ -5,6 +5,8 @@ import Hero from '../components/Hero'
 import Section1 from '../components/Section1'
 import Section2 from '../components/Section2'
 import Events from '../components/Events'
+import Section3 from '../components/Section3'
+import ContactCard from '../components/ContactCard'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
@@ -82,6 +84,12 @@ const Landing = ({ data, pageContext }) => {
         <Events
           events={events}
         />
+        <Section3 
+          section={data.contentfulSection3}
+          title={data.contentfulSection3.title}
+          content={data.contentfulSection3.content}
+        />
+        <ContactCard info={data.contentfulContact}/>
 
       </Container>
     </Layout>
@@ -186,6 +194,23 @@ query MyQuery {
         }
       }
     }
+  }
+  contentfulSection3 {
+    title
+    content {
+      title
+      entry {
+        internal {
+          content
+        }
+      }
+    }
+  }
+  contentfulContact {
+    email
+    facebook
+    instagram
+    phoneNumber
   }
 }
 

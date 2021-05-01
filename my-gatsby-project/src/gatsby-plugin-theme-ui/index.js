@@ -14,6 +14,8 @@ export default {
   fonts: {
     body:
       'Quicksand, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    bodyBold:
+      'Quicksand-Bold, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     header:
       'Sonder-Sans',
     headerBold: 

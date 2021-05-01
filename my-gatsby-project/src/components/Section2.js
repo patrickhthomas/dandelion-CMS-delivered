@@ -7,25 +7,16 @@ import Pin from '../components/Icons/pin'
 
 
 const Wrapper = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
   max-width: 100%;
+  grid-gap: 2em;
+  padding-bottom: 3em;
 .htmlContainer {
   p {
     padding: 0;
   }
 }
-  .location{
-    width: 100%;
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: 2em 1fr;
-    grid-template-rows: auto;
-  }
-  .hours {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
   height: ${props => props.height || 'auto'};
   @media (min-width: ${props => props.theme.responsive.small}) {
     max-width: ${props => props.theme.sizes.maxWidthCentered}; 
@@ -35,16 +26,47 @@ const Wrapper = styled.section`
   }
 `
 const Title = styled.h2`
-  margin-bottom: 1em;
+`
+
+const SubSection1 = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  padding-bottom: 2em;
+  h3, p {
+    padding-bottom: .5em;
+  }
+ .foodDrinkLink {
+   padding-top: 1em;
+   align-self: flex-end;
+   text-align: right;
+ }
+`
+
+const SubSection2 = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  padding-bottom: 2em;
+  h3, p {
+    padding-bottom: .5em;
+  }
+ .apothecaryLink {
+   padding-top: 1em;
+   align-self: flex-end;
+   text-align: right;
+ }
 `
 
 
 const Products = styled.div`
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-gap: .5em;
   @media (min-width: ${props => props.theme.responsive.small}) {
-
+    grid-gap: 1em;
+  }
+  @media (min-width: ${props => props.theme.responsive.medium}) {
+    display: flex;
   }
 `
 
@@ -60,7 +82,7 @@ div {
          z-index: 0;
          width: 100%;
          justify-self: center;
-         height 6em;
+         height 3em;
          grid-column: 1 / 3;
          grid-row: 1 / 1;
          top: 0;
@@ -77,8 +99,7 @@ div {
      color: white;
      opacity: 100%;
      padding-top: .5em;
-     padding-bottom: 2em;
-
+     padding-bottom: .5em;
      overflow: hidden;
 
  }
@@ -89,7 +110,24 @@ div {
  }
   @media (min-width: ${props => props.theme.responsive.small}) {
     border-radius: .5em;
-
+    div {
+      height 4em;
+    }
+  }
+  @media (min-width: ${props => props.theme.responsive.medium}) {
+    border-radius: .5em;
+    flex: 1 1 0px;
+    div {
+      height: 3.5em;
+    }
+    h3 {
+      padding-bottom: 0.2em;
+    }
+  }
+  @media (min-width: ${props => props.theme.responsive.large}) {
+    h3 {
+      padding-bottom: 1.5em;
+    }
   }
 `
 
@@ -98,31 +136,34 @@ const Section2 = props => (
 
   <Wrapper>
     <Title>{props.title}</Title>
-    <h3>{props.subSection1Title}</h3>
-
+    <SubSection1>
+      <h3>{props.subSection1Title}</h3>
       <p>{props.subSection1Desc.internal.content}</p>
-
-    {props.teahouseProduct.map(({ productImage, productName }) => (
-    <Products>
-      <Product>
-        <img src={productImage.file.url}/>
-        <div></div>
-        <h3>{productName}</h3>
-      </Product>
-    </Products>
-    ))}
-
-    <h2>{props.subSection2Title}</h2>
-    <p>{props.subSection2Desc.internal.content}</p>
-    {props.apothecaryProduct.map(({ productImage, productName }) => (
-    <Products>
-      <Product>
-        <img src={productImage.file.url}/>
-        <div></div>
-        <h3>{productName}</h3>
-      </Product>
-    </Products>
-    ))}
+      <Products>
+      {props.teahouseProduct.map(({ productImage, productName }) => (
+        <Product>
+          <img src={productImage.file.url}/>
+          <div></div>
+          <h3>{productName}</h3>
+        </Product>
+      ))}
+      </Products>
+      <p class="foodDrinkLink">View all food and drink options &gt;</p>
+    </SubSection1>
+    <SubSection2>
+      <h3>{props.subSection2Title}</h3>
+      <p>{props.subSection2Desc.internal.content}</p>
+      <Products>
+      {props.apothecaryProduct.map(({ productImage, productName }) => (
+        <Product>
+          <img src={productImage.file.url}/>
+          <div></div>
+          <h3>{productName}</h3>
+        </Product>
+      ))}
+       </Products>
+       <p class="apothecaryLink">View all apothecary options &gt;</p>
+    </SubSection2>
 
   </Wrapper>
 )
