@@ -29,7 +29,8 @@ module.exports = ({ actions }) => {
       "contentfulPostBodyTextNode",
       "contentfulPostMetaDescriptionTextNode",
       "contentfulPageBodyTextNode",
-      "contentfulPageMetaDescriptionTextNode"
+      "contentfulPageMetaDescriptionTextNode",
+      "bigCommerceProductsDescription"
     ]) {
       id: ID!
     }

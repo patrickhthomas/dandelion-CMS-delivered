@@ -41,6 +41,7 @@ module.exports = async ({ graphql, actions }) => {
     },
   })
 
+
   // Create "tag" page and paginate
   const tagsQuery = await graphql(query.data.tags)
   const tags = tagsQuery.data.allContentfulTag.edges
@@ -64,6 +65,7 @@ module.exports = async ({ graphql, actions }) => {
       },
     })
   })
+
 
   // Create a page for each "page"
   const pagesQuery = await graphql(query.data.pages)

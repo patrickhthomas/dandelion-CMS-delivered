@@ -41,5 +41,22 @@ module.exports.data = {
         }
       }
     }
+  }`,
+  apothecaryProducts: `{
+    allBigCommerceProducts {
+    edges {
+      node {
+        id
+        name
+        images {
+          url_standard
+          url_thumbnail
+          image_file
+        }
+        price
+        description
+      }
+    }
+  }
   }`
 }

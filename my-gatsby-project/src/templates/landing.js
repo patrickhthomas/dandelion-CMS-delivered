@@ -7,6 +7,7 @@ import Section2 from '../components/Section2'
 import Events from '../components/Events'
 import Section3 from '../components/Section3'
 import ContactCard from '../components/ContactCard'
+import ApothecaryPreview from '../components/BigCommerce/ApothecaryPreview'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
@@ -44,6 +45,10 @@ const Landing = ({ data, pageContext }) => {
 
   //establishes variables for Events
   const events = data.allContentfulEvent.edges
+
+  //establishes variables for LooseLeaf BigCommerceProducts
+  const looseLeaf = data.allBigCommerceProducts.edges
+
 
   return (
     <Layout>
@@ -90,7 +95,7 @@ const Landing = ({ data, pageContext }) => {
           content={data.contentfulSection3.content}
         />
         <ContactCard info={data.contentfulContact}/>
-
+        <ApothecaryPreview looseLeaf={looseLeaf} />
       </Container>
     </Layout>
   )
@@ -212,8 +217,22 @@ query MyQuery {
     instagram
     phoneNumber
   }
+  allBigCommerceProducts {
+    edges {
+      node {
+        id
+        name
+        images {
+          url_standard
+          url_thumbnail
+          image_file
+        }
+        price
+        description
+      }
+    }
+  }
 }
-
 `
 
 export default Landing
