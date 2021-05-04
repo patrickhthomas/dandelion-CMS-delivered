@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
+import { TiPlusOutline } from 'react-icons/ti'
 
 
 
@@ -57,6 +58,7 @@ const SubSection2 = styled.div`
 
 const Products = styled.div`
   display: grid;
+  grid-gap: 2em;
   @media (min-width: ${props => props.theme.responsive.small}) {
     grid-gap: 1em;
   }
@@ -68,42 +70,36 @@ const Products = styled.div`
 const Product = styled.div`
  display: grid;
  grid-template-areas: 
-  "a b c"
-  "d e f";
- align-items: end;
- max-width: 100%;
- grid-template-columns: 1fr;
+  "a b b b"
+  "a c f i"
+  "a e e h";
+ align-items: center;
+ width: 100%;
+ max-width: 1060px;
+ grid-template-columns: 12em auto auto auto;
  overflow: hidden;
-div {
-         content: '';
-         z-index: 0;
-         width: 100%;
-         justify-self: center;
-         height 3em;
-         grid-column: 1 / 3;
-         grid-row: 1 / 1;
-         top: 0;
-         left: 0;
-         background: linear-gradient(140.98deg, rgba(113, 54, 186, 0.5) 17.15%, rgba(14, 7, 24, 0.5) 59.18%, rgba(110, 38, 255, 0.5) 117.37%), radial-gradient(106.5% 85.16% at 73.56% 25.55%, rgba(113, 54, 186, 0.5) 6.86%, rgba(48, 23, 79, 0.5) 58.17%, rgba(14, 7, 24, 0.5) 96.14%);
-         background-blend-mode: color-dodge, overlay;
-         backdrop-filter: blur(3px);
-     }
+ .price {
+   grid-area: c;
+ }
  h3 {
      width: 100%;
      z-index: 1;
-     grid-column: 1 / 1;
-     grid-row: 1 / 1;
-     color: white;
+     grid-area: b;
+     color: ${props => props.theme.colors.text};
      opacity: 100%;
      padding-top: .5em;
      padding-bottom: .5em;
      overflow: hidden;
 
  }
- img {
+ .imageContainer {
+     display: flex;
+     overflow: hidden;
      width: 100%;
+     height: auto;
      max-width: 200px;
      grid-area: a;
+
  }
   @media (min-width: ${props => props.theme.responsive.small}) {
     border-radius: .5em;
@@ -113,10 +109,7 @@ div {
   }
   @media (min-width: ${props => props.theme.responsive.medium}) {
     border-radius: .5em;
-    flex: 1 1 0px;
-    div {
-      height: 3.5em;
-    }
+
     h3 {
       padding-bottom: 0.2em;
     }
@@ -126,13 +119,35 @@ div {
       padding-bottom: 1.5em;
     }
   }
+.addToCart {
+  display: flex;
+  align-items: center;
+  border-radius: .3em;
+  grid-area: h;
+  background: ${props => props.theme.gradients.primary};
+  box-shadow: ${props => props.theme.shadows.button};
+}
+.cart {
+
+  color: white;
+  display: block;
+
+}
+.toCart {
+text-align: center;
+color: white;
+width: 150%;
+margin: auto;
+font-family: ${props => props.theme.fonts.bodyBold};
+}
 `
 const Description = styled.p`
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 1; /* number of lines to show */
-   -webkit-box-orient: vertical;
+   display: none;
+   grid-area: e;
+   margin-left: -1em;
+  @media (min-width: ${props => props.theme.responsive.small}) {
+    display: block;
+  }
 `
 
 
@@ -143,31 +158,26 @@ const Apothecary = props => (
       <h3>Apothecary</h3>
       <p>Loose leaf teas, dry herbs, and skincare solutions produced in-house.</p>
       <Products>
-      {props.looseLeaf.slice(0,3).map(({ node }) => (
-        <Product>
-          <img src={node.images[0].url_standard}/>
-          <div></div>
-          <h3>{node.name}</h3>
-        </Product>
-      ))}
+      {props.looseLeaf.map(({ node }) => {
+        return (
+          <Product>
+            <div class='imageContainer'>
+              <img src={node.images[0].url_standard} />
+            </div>
+            <p class='price'>${node.price}.00</p>
+            <h3>{node.name}</h3>
+            <Description dangerouslySetInnerHTML={{
+              __html: node.description.length > 150 ?
+                `${node.description.substring(0, 150)}...` : node.description
+            }} />
+            <div class='addToCart'>
+              <h2 class='cart'><TiPlusOutline /></h2>
+            </div>
+          </Product>
+        )
+      })}
       </Products>
-      <p class="foodDrinkLink">View all apothecary &gt;</p>
     </SubSection1>
-    <SubSection2>
-      <h3>Apothecary</h3>
-      <p>Loose leaf teas, dry herbs, and skincare solutions produced in-house.</p>
-      <Products>
-      {props.looseLeaf.map(({ node }) => (
-        <Product>
-          <img src={node.images[0].url_standard}/>
-          <div></div>
-          <h3>{node.name}</h3>
-          <Description dangerouslySetInnerHTML={{__html: node.description}} />
-        </Product>
-      ))}
-      </Products>
-      <p class="foodDrinkLink">View all apothecary &gt;</p>
-    </SubSection2>
 
   </Wrapper>
 )
