@@ -78,6 +78,7 @@ flex: 1 1 auto;
   }
 `
 const EventList = styled.div`
+  overflow-x: scroll;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -154,7 +155,7 @@ const Events = props => (
       </Event>
     ))}
     </EventList>
-    <div class="moreEventsLink"><p>View all food and drink options &gt;</p></div>
+    <div class="moreEventsLink"><p>View all upcoming events &gt;</p></div>
   </Wrapper>
 )
 

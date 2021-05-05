@@ -1,8 +1,7 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import styled from '@emotion/styled'
-import Clock from '../components/Icons/clock'
-import Pin from '../components/Icons/pin'
+import { Link } from "gatsby"
+
 
 
 
@@ -130,7 +129,8 @@ div {
     }
   }
 `
-
+const target = '_blank';
+const rel = 'noopener' + ' ' + 'noreferrer';
 
 const Section2 = props => (
 
@@ -148,21 +148,26 @@ const Section2 = props => (
         </Product>
       ))}
       </Products>
-      <p class="foodDrinkLink">View all food and drink options &gt;</p>
+      <p class="foodDrinkLink">
+        <Link to="/menu">View our full food and drink menu &gt;</Link>
+        </p>
     </SubSection1>
     <SubSection2>
-      <h3>{props.subSection2Title}</h3>
-      <p>{props.subSection2Desc.internal.content}</p>
+      <h3>Apothecary</h3>
+      <p>Loose leaf teas, dry herbs, and skincare solutions produced in-house.</p>
       <Products>
-      {props.apothecaryProduct.map(({ productImage, productName }) => (
+      {props.looseLeaf.slice(0,3).map(({ node }) => (
         <Product>
-          <img src={productImage.file.url}/>
+          <img src={node.images[0].url_standard}/>
           <div></div>
-          <h3>{productName}</h3>
+          <h3>{node.name}</h3>
         </Product>
       ))}
-       </Products>
-       <p class="apothecaryLink">View all apothecary options &gt;</p>
+      </Products>
+      <p class="apothecaryLink">
+        <a target={target} rel={rel} href="https://www.giftsfromtheearth.com/dandelion-teahouse-apothecary/">View all apothecary items at our Gifts from the Earth website &gt;</a>
+        
+      </p>
     </SubSection2>
 
   </Wrapper>

@@ -7,7 +7,6 @@ import Section2 from '../components/Section2'
 import Events from '../components/Events'
 import Section3 from '../components/Section3'
 import ContactCard from '../components/ContactCard'
-import ApothecaryPreview from '../components/BigCommerce/ApothecaryPreview'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
@@ -85,6 +84,7 @@ const Landing = ({ data, pageContext }) => {
           city={cityStateZip}
           map={map}
           link={link}
+          looseLeaf={looseLeaf}
         />
         <Events
           events={events}
@@ -95,7 +95,6 @@ const Landing = ({ data, pageContext }) => {
           content={data.contentfulSection3.content}
         />
         <ContactCard info={data.contentfulContact}/>
-        <ApothecaryPreview looseLeaf={looseLeaf} />
       </Container>
     </Layout>
   )
