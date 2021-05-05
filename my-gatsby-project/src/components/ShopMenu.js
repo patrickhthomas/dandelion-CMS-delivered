@@ -28,7 +28,7 @@ const Title = styled.h2`
 const SubSection1 = styled.div`
   max-width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   padding-bottom: 2em;
   h3, p {
     padding-bottom: .5em;
@@ -54,6 +54,11 @@ justify-content: start;
 @media (min-width: ${props => props.theme.responsive.small}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+@media (min-width: ${props => props.theme.responsive.medium}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
   }
 .child {

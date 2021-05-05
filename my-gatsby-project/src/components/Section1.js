@@ -33,6 +33,7 @@ const Wrapper = styled.section`
     grid-gap: 1em;
     grid-template-columns: 2em 1fr;
     grid-template-rows: auto;
+    align-self: start;
   }
   height: ${props => props.height || 'auto'};
   @media (min-width: ${props => props.theme.responsive.small}) {
@@ -62,6 +63,7 @@ display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: auto;
 grid-gap: 2em;
+grid-column: 1 / 3;
 `
 
 const Day = styled.li`
@@ -92,6 +94,7 @@ const Section1 = props => (
     </div>
     <div class='hours'>
     <Clock class='clock'/>
+    <Address class="hoursTitle">Store Hours</Address>
     <Hours>
     {props.days.map(({ node }, i) => (
       <Day>

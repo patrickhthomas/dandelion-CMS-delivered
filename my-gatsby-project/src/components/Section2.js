@@ -30,7 +30,7 @@ const Title = styled.h2`
 const SubSection1 = styled.div`
   width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   padding-bottom: 2em;
   h3, p {
     padding-bottom: .5em;
@@ -45,7 +45,7 @@ const SubSection1 = styled.div`
 const SubSection2 = styled.div`
   width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   padding-bottom: 2em;
   h3, p {
     padding-bottom: .5em;

@@ -13,6 +13,7 @@ const Wrapper = styled.section`
   @media (min-width: ${props => props.theme.responsive.small}) {
     max-width: ${props => props.theme.sizes.maxWidthCentered}; 
     height: ${props => props.height || 'auto'};
+    overflow: visible;
   }
 `
 const Title = styled.h1`
@@ -61,7 +62,7 @@ const HeroImg = styled.div`
   }
   
   @media (min-width: ${props => props.theme.responsive.small}) {
-
+  overflow: visible;
   img {
    position: absolute;
    width: 40%;
