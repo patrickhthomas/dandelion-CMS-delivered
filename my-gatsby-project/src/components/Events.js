@@ -146,7 +146,7 @@ function ConvertTime(props) {
 const Events = props => (
 
   <Wrapper>
-    <Title>Events</Title>
+    <Title class="sectionH2">Events</Title>
     <EventList>
     {props.events.map(({ node }, i) => (
       <Event>

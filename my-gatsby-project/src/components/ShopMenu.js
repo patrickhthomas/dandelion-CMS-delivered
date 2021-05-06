@@ -139,7 +139,7 @@ const ShopMenu = props => (
       {props.looseLeaf.map(({ node, index }) => {
         return (
         <Products key={index}>
-        <Title>{node.sectionTitle}</Title>
+        <Title class="sectionH2">{node.sectionTitle}</Title>
         <p>{node.description.internal.content}</p>
         <Product>
             {node.sectionProducts.map((sectionProducts, i) =>(

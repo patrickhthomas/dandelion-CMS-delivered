@@ -138,7 +138,7 @@ const rel = 'noopener' + ' ' + 'noreferrer';
 const Section2 = props => (
 
   <Wrapper>
-    <Title>{props.title}</Title>
+    <Title class="sectionH2">{props.title}</Title>
     <SubSection1>
       <h3>{props.subSection1Title}</h3>
       <p>{props.subSection1Desc.internal.content}</p>

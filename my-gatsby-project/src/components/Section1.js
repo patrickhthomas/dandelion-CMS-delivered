@@ -85,7 +85,7 @@ p{
 const Section1 = props => (
 
   <Wrapper>
-    <Title>{props.title}</Title>
+    <Title class="sectionH2">{props.title}</Title>
     <div class='divider'>
     <div class='location'>
       <Pin class='pin'/>

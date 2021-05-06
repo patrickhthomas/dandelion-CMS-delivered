@@ -71,7 +71,7 @@ p{
 const Section1 = props => (
 
   <Wrapper>
-    <Title>{props.title}</Title>
+    <Title class="sectionH2">{props.title}</Title>
 
 
     {props.content.map(({ title, entry }) => (

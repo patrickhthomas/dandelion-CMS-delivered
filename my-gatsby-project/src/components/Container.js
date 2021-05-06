@@ -10,6 +10,9 @@ const Wrapper = styled.section`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     padding: 3em 1.5em 2em;
   }
+  .sectionH2 {
+     border-bottom: 1px solid ${props => props.theme.colors.tertiary};
+  }
 `
 
 const Container = props => {

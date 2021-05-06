@@ -40,7 +40,7 @@ const Root = styled.div`
     max-width: ${props => props.theme.sizes.maxWidthCentered};
     padding: 0 1rem;
     color: ${props => props.theme.colors.text};
-    border-bottom: 1px solid ${props => props.theme.colors.tertiary};
+   
   }
   h3 {
     font-family: ${props => props.theme.fonts.headerBold};

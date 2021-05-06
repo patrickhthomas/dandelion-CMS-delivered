@@ -39,8 +39,8 @@ const Nav = styled.nav`
     color: DarkGray;
     font-weight: 600;
     padding: 1em;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 15%;
+    padding-right: 15%;
     transition: all 0.2s;
     border-radius: .2em;
     &:hover {

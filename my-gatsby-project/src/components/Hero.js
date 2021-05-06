@@ -120,6 +120,7 @@ const Subtitle = styled.h2`
   z-index: 1;
   grid-column: 1 / 5;
   grid-row: 2 / 3;
+  border-bottom: 0px;
 `
 const Tagline = styled.h3`
   z-index: 1;
