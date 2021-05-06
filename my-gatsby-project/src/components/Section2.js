@@ -66,15 +66,17 @@ const Products = styled.div`
   }
   @media (min-width: ${props => props.theme.responsive.medium}) {
     display: flex;
+    align-items: stretch;
   }
 `
 
 const Product = styled.div`
+
  display: grid;
  align-items: end;
- max-width: 100%;
+ width: 100%;
  grid-template-columns: 1fr;
- grid-template-rows: auto auto;
+ grid-template-rows: minmax(auto 5em) minmax(auto 5em);
  overflow: hidden;
 div {
          content: '';
@@ -106,6 +108,7 @@ div {
      width: 100%;
      grid-column: 1 / 1;
      grid-row: 1 / 2;
+     align-self: start;
  }
   @media (min-width: ${props => props.theme.responsive.small}) {
     border-radius: .5em;

@@ -45,6 +45,7 @@ const Wrapper = styled.section`
   }
    .moreEventsLink {
    justify-self: end;
+   align-self: start;
  }
 `
 const Title = styled.h2`
@@ -53,10 +54,17 @@ const Title = styled.h2`
 
 
 const Event = styled.div`
-display: flex;
-flex-direction: column;
-flex: 1 1 auto;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: auto 10em auto;
+overflow: hidden;
+ .imageContainer {
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+ }
  img {
+  margin: auto;
   width: 100%;
  }
 
@@ -78,7 +86,6 @@ flex: 1 1 auto;
   }
 `
 const EventList = styled.div`
-  overflow-x: scroll;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -87,7 +94,9 @@ const EventList = styled.div`
     grid-gap: 1em;
   }
   @media (min-width: ${props => props.theme.responsive.medium}) {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(10em, 1fr) minmax(10em, 1fr) minmax(10em, 1fr);
+      grid-template-rows: 1fr;
   }
 `
 function ConvertDate(props) {
@@ -146,11 +155,11 @@ const Events = props => (
           <ConvertTime start={node.startTime} end={node.endTime} />
           <h3 class="eventTitle">{node.title}</h3>
         </div>
-        <div>
+        <div class="imageContainer">
             <img src={node.image.file.url} alt={node.image.description} />
         </div>
         <div class="description">
-            <p>{node.description.internal.content}</p>
+            <p>{node.description.childMarkdownRemark.excerpt}</p>
         </div>
       </Event>
     ))}

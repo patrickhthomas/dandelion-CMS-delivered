@@ -38,9 +38,15 @@ const Nav = styled.nav`
     text-decoration: none;
     color: DarkGray;
     font-weight: 600;
+    padding: 1em;
+    padding-left: 10vw;
+    padding-right: 10vw;
     transition: all 0.2s;
+    border-radius: .2em;
     &:hover {
       color: ${props => props.theme.colors.highlight};
+      background: ${props => props.theme.colors.tertiary};
+      font-size: 1.1em;
     }
   }
 `
@@ -54,7 +60,14 @@ const Menu = () => {
         <ul>
           {menuLinks.map(link => (
             <li key={link.name}>
-              <Link to={link.slug} activeStyle={{color: 'black', fontSize: '1.2em', fontWeight: '700', background: 'radial-gradient(50.56% 97.5% at 50% 119.33%, rgba(255, 209, 58, 0.7) 0%, rgba(255, 255, 255, 0) 100%)', padding: '1em', paddingLeft: '50%', paddingRight: '50%',  }}>
+              <Link to={link.slug} 
+              activeStyle={{
+                color: 'black', 
+                fontSize: '1.2em', 
+                fontWeight: '700', 
+                background: 'radial-gradient(.5em .5em at 50% 77%, #FFD13A 0%, #FFD13A 56.77%, #FFFFFF 58.85%)', 
+                paddingBottom: '1em',  
+              }}>
                 {link.name}
               </Link>
             </li>

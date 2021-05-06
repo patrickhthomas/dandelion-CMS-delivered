@@ -182,11 +182,11 @@ query MyQuery {
   allContentfulEvent(sort: {fields: startTime, order: ASC}) {
     edges {
       node {
-      description {
-        internal {
-          content
+        description {
+          childMarkdownRemark {
+            excerpt(pruneLength: 30)
+          }
         }
-      }
         startTime
         endTime
         title

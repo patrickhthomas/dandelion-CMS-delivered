@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 const Wrapper = styled.section`
-  padding-bottom: 3em;
+  padding-bottom: 4em;
   display: grid;
   position: relative;
   grid-gap: .5em;

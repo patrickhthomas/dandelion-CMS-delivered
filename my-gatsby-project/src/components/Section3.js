@@ -53,12 +53,14 @@ const Title = styled.h2`
 const StoryPart = styled.div`
  display: grid;
  grid-gap: 0.5em;
+ padding-bottom: 1em;
  justify-content: start;
  grid-template-columns: 1fr;
    @media (min-width: ${props => props.theme.responsive.small}) {
     grid-template-columns: 1fr 2fr;
   }
 p{
+  padding-bottom: 1em;
   border-bottom: 1px solid ${props => props.theme.colors.yellow};
   justify-self: start;
 }
