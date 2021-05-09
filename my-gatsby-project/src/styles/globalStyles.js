@@ -212,11 +212,10 @@ export const globalStyles = css`
     
   }
 
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   80% { transform: rotate(4deg); }
-   90% { transform: rotate(-2deg); }
-   100% { transform: rotate(0deg); }
+@keyframes rainbow {
+    0% {   background-size: 0% .2em; }
+    70% {   background-size: 0% .2em; }
+   100% { background-size: 100% .2em; }
 }
 
 `
