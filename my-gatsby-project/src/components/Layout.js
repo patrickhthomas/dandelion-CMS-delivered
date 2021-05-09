@@ -88,9 +88,9 @@ const Skip = styled.a`
 
 const Main = styled.div`
 section {
-       @media (min-width: ${props => props.theme.responsive.medium}) {
+       @media (min-width: ${props => props.theme.responsive.small}) {
         background-color: ${props => props.theme.colors.tertiary};
-
+        border-radius: 1em;
         padding: 2em;
         margin-bottom: 5em;
 
@@ -100,19 +100,26 @@ section {
  .isVisible{
   opacity: 100%;
 
-  transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in 200ms;
     @media (min-width: ${props => props.theme.responsive.small}) {
      box-shadow: 0px 0px 5px rgba(113, 54, 186, 0.7);
+    background-position: left 4.5em;
   }
-  
+  background: linear-gradient(90deg, #B91E23 0%, #B91E23 16.65%, #DB742E 16.66%, #DB742E 33.31%, #FFD13A 33.32%, #FFD13A 49.99%, #2F9E44 50%, #2F9E44 66.65%, #002A73 66.66%, #002A73 83.43%, #30174F 83.44%);
+  background-size: 100% .2em;
+  background-repeat: no-repeat;
+  background-position: left 2.5em;
+  transition-delay: 1000ms;
+  transition-property: background-size;
 }
 
 
 
 .isHidden{
   opacity: 0%;
-  transform: scale(.8);
+  transform: scale(.95);
   transition: all 0.5s ease-in;
+  background-size: 0% .2em;
 }
 
 .overrideInView{
