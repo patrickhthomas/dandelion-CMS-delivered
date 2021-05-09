@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
+import useIsInViewport from 'use-is-in-viewport'
 
 
 
@@ -135,9 +136,14 @@ div {
 const target = '_blank';
 const rel = 'noopener' + ' ' + 'noreferrer';
 
-const Section2 = props => (
+const Section2 = props =>  {
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20 })
+return (
 
-  <Wrapper>
+  <Wrapper
+    ref={targetRef}
+  className={isInViewport ? 'isVisible' : 'isHidden'}
+  >
     <Title class="sectionH2">{props.title}</Title>
     <SubSection1>
       <h3>{props.subSection1Title}</h3>
@@ -174,6 +180,6 @@ const Section2 = props => (
     </SubSection2>
 
   </Wrapper>
-)
+)}
 
 export default Section2

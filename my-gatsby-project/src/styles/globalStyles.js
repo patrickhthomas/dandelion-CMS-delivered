@@ -211,4 +211,15 @@ export const globalStyles = css`
   h1{
     
   }
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(4deg); }
+   90% { transform: rotate(-2deg); }
+   100% { transform: rotate(0deg); }
+}
+
 `
+
+/* Keyframes */
+

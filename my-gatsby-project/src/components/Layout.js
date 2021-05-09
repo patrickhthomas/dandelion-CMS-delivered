@@ -6,7 +6,6 @@ import Footer from '../components/Footer'
 import { globalStyles } from '../styles/globalStyles.js'
 
 
-
 const Root = styled.div`
  
   p,
@@ -87,6 +86,40 @@ const Skip = styled.a`
   }
 `
 
+const Main = styled.div`
+section {
+       @media (min-width: ${props => props.theme.responsive.medium}) {
+        background-color: ${props => props.theme.colors.tertiary};
+
+        padding: 2em;
+        margin-bottom: 5em;
+
+    }
+ }
+
+ .isVisible{
+  opacity: 100%;
+
+  transition: all 0.5s ease-in;
+    @media (min-width: ${props => props.theme.responsive.small}) {
+     box-shadow: 0px 0px 5px rgba(113, 54, 186, 0.7);
+  }
+  
+}
+
+
+
+.isHidden{
+  opacity: 0%;
+  transform: scale(.8);
+  transition: all 0.5s ease-in;
+}
+
+.overrideInView{
+  background-color: white;
+}
+`
+
 const Layout = props => {
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
@@ -97,13 +130,17 @@ const Layout = props => {
 
 
   return (
-    <Root className="siteRoot">
+    <Root className="siteRoot"
+     data-sal="slide-right"
+     data-sal-delay="50"
+     data-sal-duration="900"
+     data-sal-easing="ease-in-back">
       <div className="siteContent">
         <Skip href="#main" id="skip-navigation">
           Skip to content
         </Skip>
         <Menu />
-        <div id="main">{props.children}</div>
+        <Main id="main">{props.children}</Main>
       </div>
       <Global styles={globalStyles} />
     </Root>

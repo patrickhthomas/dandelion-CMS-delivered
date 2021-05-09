@@ -12,7 +12,6 @@ import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 
 const Landing = ({ data, pageContext }) => {
-
   const { basePath } = pageContext
 
   //establishes variables for the Hero section, queried from 'contentfulHero'
@@ -62,6 +61,7 @@ const Landing = ({ data, pageContext }) => {
           alt={alt}
         />
         <Section1 
+          id="card"
           title={section1Title}
           days={days}
           isOpen={isOpen}
@@ -71,6 +71,7 @@ const Landing = ({ data, pageContext }) => {
           link={link}
         />
         <Section2 
+          id="card"
           title={data.contentfulSection2.title}
           subSection1Title={subSection1.title}
           subSection1Desc={subSection1.description}
@@ -87,14 +88,18 @@ const Landing = ({ data, pageContext }) => {
           looseLeaf={looseLeaf}
         />
         <Events
+          id="card"
           events={events}
         />
         <Section3 
+          id="card"
           section={data.contentfulSection3}
           title={data.contentfulSection3.title}
           content={data.contentfulSection3.content}
         />
-        <ContactCard info={data.contentfulContact}/>
+        <ContactCard 
+        id="card"
+        info={data.contentfulContact}/>
       </Container>
     </Layout>
   )

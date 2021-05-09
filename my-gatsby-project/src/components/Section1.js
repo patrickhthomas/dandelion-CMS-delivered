@@ -3,10 +3,12 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import Clock from '../components/Icons/clock'
 import Pin from '../components/Icons/pin'
+import useIsInViewport from 'use-is-in-viewport'
 
 
 
 const Wrapper = styled.section`
+
   padding-bottom: 3em;
   display: grid;
   position: relative;
@@ -19,6 +21,7 @@ const Wrapper = styled.section`
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
  }
 
   .location{
@@ -78,13 +81,19 @@ p{
   padding: 0;
   border-bottom: 1px solid ${props => props.theme.colors.yellow};
 }
+
  
 `
 
 
-const Section1 = props => (
+const Section1 = props =>  {
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20 })
+return (
 
-  <Wrapper>
+  <Wrapper
+  ref={targetRef}
+  className={isInViewport ? 'isVisible' : 'isHidden'}
+  >
     <Title class="sectionH2">{props.title}</Title>
     <div class='divider'>
     <div class='location'>
@@ -115,5 +124,6 @@ const Section1 = props => (
     </div>
   </Wrapper>
 )
+        }
 
 export default Section1

@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import Clock from '../components/Icons/clock'
 import Pin from '../components/Icons/pin'
+import useIsInViewport from 'use-is-in-viewport'
 
 
 
@@ -143,9 +144,14 @@ function ConvertTime(props) {
 
 
 
-const Events = props => (
+const Events = props => {
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20})
+return (
 
-  <Wrapper>
+  <Wrapper
+  ref={targetRef}
+  className={isInViewport ? 'isVisible' : 'isHidden'}
+  >
     <Title class="sectionH2">Events</Title>
     <EventList>
     {props.events.map(({ node }, i) => (
@@ -166,6 +172,6 @@ const Events = props => (
     </EventList>
     <div class="moreEventsLink"><p>View all upcoming events &gt;</p></div>
   </Wrapper>
-)
+)}
 
 export default Events

@@ -2,6 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
+
 const Wrapper = styled.section`
   padding-bottom: 4em;
   display: grid;
@@ -129,7 +130,7 @@ const Tagline = styled.h3`
 `
 
 const Hero = props => (
-  <Wrapper>
+  <Wrapper className='overrideInView'>
     <Title>{props.title}</Title>
     <HeroImg><img src={props.image.file.url} alt={props.alt} /></HeroImg>
     <Title>{props.title}</Title>

@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import Clock from '../components/Icons/clock'
 import Pin from '../components/Icons/pin'
+import useIsInViewport from 'use-is-in-viewport'
 
 
 
@@ -68,9 +69,14 @@ p{
 `
 
 
-const Section1 = props => (
+const Section1 = props => {
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20 })
+return (
 
-  <Wrapper>
+  <Wrapper
+  ref={targetRef}
+  className={isInViewport ? 'isVisible' : 'isHidden'}
+  >
     <Title class="sectionH2">{props.title}</Title>
 
 
@@ -82,6 +88,6 @@ const Section1 = props => (
     ))}
 
   </Wrapper>
-)
+)}
 
 export default Section1
