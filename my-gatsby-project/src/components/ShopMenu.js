@@ -51,7 +51,7 @@ width: 100%;
 display: grid;
 grid-gap: 2em;
 justify-content: start;
-@media (min-width: ${props => props.theme.responsive.small}) {
+@media (min-width: ${props => props.theme.responsive.medium}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
@@ -59,15 +59,13 @@ justify-content: start;
 @media (min-width: ${props => props.theme.responsive.medium}) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1em;
+    padding-bottom: 2em;
+    row-gap: 4em;
   }
 .child {
-
 width: 90%;
-    border-radius: 1em;
-@media (min-width: ${props => props.theme.responsive.small}) {
-
-  }
+border-radius: 1em;
+box-shadow: 0px 0px 25px rgba(113, 54, 186, 0.2);
 
 
 
@@ -77,55 +75,79 @@ margin: auto;
  }
  display: grid;
  grid-template-areas: 
-  "a b c"
-  "d e f"
-  "g h i"
-  "j k l"
-  "m n o";
+  "a a a"
+  "b b b"
+  "c c c";
  align-items: center;
  max-width: 1060px;
  max-width: 100%;
  grid-template-columns: 1fr 1fr 1fr;
- grid-template-rows: 4em 3em minmax(3em,auto) minmax(3em,auto) 3em;
+ grid-template-rows: minmax(3em,6em) 3em auto;
  overflow: hidden;
-max-width: 400px;
+ height: 100%;
+   transition: all .2s ease-in-out;
+   cursor: pointer;
+&:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.05);
+  background: ${props => props.theme.colors.primary}
+}
 }
 
 `
 const Description = styled.p`
-grid-area: j / j / j / l;
-z-index: 2;
-align-self: start;
 
 `
 const Price = styled.p`
-grid-area: m;
-z-index: 2;
+
 
 `
 
 const ProductName = styled.h3`
-grid-area: g / g / g / i;
-z-index: 2;
-margin-top: 0.5em;
 
 `
 const ProductImage = styled.div`
-  grid-area: a / a / m / o;
-  width: 100%;
-  height: 300px;
+  grid-area: a;
   overflow: hidden;
+  height: 200%;
+  display: grid;
     img {
-        max-width: 400px;
+     min-width: 100%;
+     max-width: 120%;
+     align-self: end;
     }
+@media (min-width: ${props => props.theme.responsive.small}) {
+    img {
+     min-height: 100%;
+     max-width: 100%;
+    }
+}
+@media (min-width: ${props => props.theme.responsive.medium}) {
+    img {
+     min-height: 100%;
+     max-width: 200%;
+     margin: auto;
+     transform: translateY(0%);
+    }
+@media (min-width: ${props => props.theme.responsive.large}) {
+    img {
+     min-height: 100%;
+     max-width: 120%;
+     margin: auto;
+     transform: translateY(0%);
+    }
+}
 `
 const Frost = styled.div`
-  grid-area: g / a / m / o;
+  grid-area: c;
+  display: flex;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  justify-content: space-evenly;
+  flex-flow: column nowrap;
   width: 100%;
   height: 100%;
-  background: ${props => props.theme.gradients.primary};
- -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  background: ${props => props.theme.colors.fadedPurple};
 `
 
 
@@ -144,11 +166,12 @@ const ShopMenu = props => (
         <Product>
             {node.sectionProducts.map((sectionProducts, i) =>(
                 <div class="child" key={i}>
-                    <Frost></Frost>
-                    <ProductName>{sectionProducts.productName}</ProductName>
-                    <Description>{sectionProducts.description.internal.content}</Description>
-                    <Price>${sectionProducts.price}</Price>
                     <ProductImage><img src={sectionProducts.productImage.file.url}/></ProductImage>
+                    <Frost>
+                    <ProductName>{sectionProducts.productName}</ProductName>
+                    <Description>{sectionProducts.description.childMarkdownRemark.excerpt}</Description>
+                    <Price>${sectionProducts.price}</Price>
+                    </Frost>
                 </div>
             ))}
         </Product>

@@ -41,9 +41,10 @@ query MenuQuery {
         }
         sectionProducts {
           description {
-            internal {
-              content
+            childMarkdownRemark {
+              excerpt(pruneLength: 50)
             }
+            description
           }
           productImage {
             file {
@@ -57,6 +58,7 @@ query MenuQuery {
     }
   }
 }
+
 `
 
 export default MenuPage
