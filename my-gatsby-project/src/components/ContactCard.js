@@ -4,7 +4,7 @@ import useIsInViewport from 'use-is-in-viewport'
 
 const Wrapper = styled.section`
   padding-bottom: 3em;
-  display: flex;
+  display: grid;
   grid-gap: 1em;
   flex-direction: column;
   @media (min-width: ${props => props.theme.responsive.small}) {

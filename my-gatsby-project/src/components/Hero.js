@@ -107,7 +107,8 @@ const HeroImg = styled.div`
     left: 0;
     background-color: ${props => props.theme.colors.background};
     mix-blend-mode: normal;
-    filter: opacity(.2);
+    filter: opacity(.2) blur(0);
+    backdrop-filter: blur(0);
   }
   margin-top: 0em;
   margin-right: 5%;
