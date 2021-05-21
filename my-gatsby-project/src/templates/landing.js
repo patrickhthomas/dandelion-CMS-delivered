@@ -212,6 +212,9 @@ query MyQuery {
         internal {
           content
         }
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

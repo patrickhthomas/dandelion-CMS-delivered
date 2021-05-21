@@ -60,11 +60,16 @@ const StoryPart = styled.div`
    @media (min-width: ${props => props.theme.responsive.small}) {
     grid-template-columns: 1fr 2fr;
   }
-p{
+p {
   padding-bottom: 1em;
+  padding-top: 1em;
   border-bottom: 1px solid ${props => props.theme.colors.yellow};
   justify-self: start;
 }
+p:first-child {
+  padding-top: 0em;
+}
+
  
 `
 
@@ -83,7 +88,7 @@ return (
     {props.content.map(({ title, entry }) => (
       <StoryPart>
         <h3>{title}</h3>
-        <p>{entry.internal.content}</p>
+        <div dangerouslySetInnerHTML={{ __html: entry.childMarkdownRemark.html }}/>
       </StoryPart>
     ))}
 
