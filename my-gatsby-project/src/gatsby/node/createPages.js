@@ -27,6 +27,25 @@ module.exports = async ({ graphql, actions }) => {
     })
   })
 
+    // Create a page for each "product"
+  const productsPageQuery = await graphql(query.data.products)
+  const products = productsPageQuery.data.allContentfulProduct.edges
+  products.forEach((product, i) => {
+    const next = i === products.length - 1 ? null : products[i + 1].node
+    const prev = i === 0 ? null : products[i - 1].node
+
+    createPage({
+      path: `${basePath === '/' ? '' : basePath}/${product.node.slug}/`,
+      component: path.resolve(`./src/templates/product.js`),
+      context: {
+        slug: product.node.slug,
+        basePath: basePath === '/' ? '' : basePath,
+        prev,
+        next,
+      },
+    })
+  })
+
   // Create a page containing all "posts" and paginate.
   paginate({
     createPage,

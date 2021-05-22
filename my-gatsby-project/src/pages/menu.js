@@ -5,6 +5,7 @@ import ShopMenu from '../components/ShopMenu'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const MenuPage = ({ data, pageContext }) => {
 
@@ -19,7 +20,7 @@ const MenuPage = ({ data, pageContext }) => {
     <Layout>
       <SEO title={startCase(basePath)}/>
       <Container>
-        <ShopMenu looseLeaf={looseLeaf} />
+        <ShopMenu looseLeaf={looseLeaf} basePath={basePath}/>
       </Container>
     </Layout>
   )
@@ -53,6 +54,7 @@ query MenuQuery {
           }
           productName
           price
+          slug
         }
       }
     }

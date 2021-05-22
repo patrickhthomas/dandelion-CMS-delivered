@@ -42,21 +42,14 @@ module.exports.data = {
       }
     }
   }`,
-  apothecaryProducts: `{
-    allBigCommerceProducts {
-    edges {
-      node {
-        id
-        name
-        images {
-          url_standard
-          url_thumbnail
-          image_file
+  products: `{
+    allContentfulProduct(sort: {fields: id, order: ASC}) {
+      edges {
+        node {
+          slug
+          id
         }
-        price
-        description
       }
     }
-  }
-  }`
+  }`,
 }

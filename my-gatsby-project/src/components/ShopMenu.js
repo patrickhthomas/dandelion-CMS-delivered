@@ -2,6 +2,8 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import { TiPlusOutline } from 'react-icons/ti'
+import { Link } from 'gatsby'
+
 
 
 
@@ -20,6 +22,9 @@ padding-bottom: 3em;
 height: ${props => props.height || 'auto'};
 @media (min-width: ${props => props.theme.responsive.small}) {
   max-width: ${props => props.theme.sizes.maxWidthCentered}; 
+}
+a {
+  text-decoration: none;
 }
 `
 const Title = styled.h2`
@@ -94,9 +99,7 @@ justify-content: start;
         .frost {
       background: ${props => props.theme.colors.primary};
     }
-  }
-  
-  
+  }  
   `
   const Description = styled.p`
   
@@ -166,8 +169,10 @@ justify-content: start;
           <Products key={index}>
           <Title class="sectionH2">{node.sectionTitle}</Title>
           <p>{node.description.internal.content}</p>
+          
           <Product>
           {node.sectionProducts.map((sectionProducts, i) =>(
+            <Link to={`/${sectionProducts.slug}/`}>
             <div class="child" key={i}>
             <ProductImage><img src={sectionProducts.productImage.file.url}/></ProductImage>
             <Frost className="frost">
@@ -176,6 +181,7 @@ justify-content: start;
             <Price>${sectionProducts.price}</Price>
             </Frost>
             </div>
+            </Link>
             ))}
             </Product>
             </Products>
