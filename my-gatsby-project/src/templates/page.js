@@ -34,5 +34,5 @@ export const query = graphql`
     }
   }
 `
-
+PageTemplate.Layout = Layout 
 export default PageTemplate

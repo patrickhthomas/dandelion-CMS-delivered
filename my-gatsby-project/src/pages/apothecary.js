@@ -50,5 +50,5 @@ query ApothecaryQuery {
   }
 }
 `
-
+ApothecaryPage.Layout = Layout 
 export default ApothecaryPage

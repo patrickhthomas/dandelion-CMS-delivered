@@ -7,6 +7,7 @@ import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
+
 const MenuPage = ({ data, pageContext }) => {
 
   const { basePath } = pageContext
@@ -63,4 +64,6 @@ query MenuQuery {
 
 `
 
+
+MenuPage.Layout = Layout 
 export default MenuPage

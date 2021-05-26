@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import Collapsible from 'react-collapsible';
 
 const Header = styled.header`
   background: ${props => props.theme.colors.white};
@@ -51,10 +52,13 @@ const Nav = styled.nav`
   }
 `
 
+const smallViewport = props => props.theme.responsive.small
+
 
 const Menu = () => {
   const { menuLinks } = useSiteMetadata()
   return (
+    <Collapsible trigger="Start here">
     <Header>
       <Nav>
         <ul>
@@ -75,6 +79,7 @@ const Menu = () => {
         </ul>
       </Nav>
     </Header>
+    </Collapsible>
   )
 }
 

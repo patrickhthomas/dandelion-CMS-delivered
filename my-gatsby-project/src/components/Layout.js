@@ -128,7 +128,7 @@ section {
 }
 `
 
-const Layout = props => {
+const Layout = ({children}) => {
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
       document.body.classList.add('user-is-tabbing')
@@ -139,16 +139,14 @@ const Layout = props => {
 
   return (
     <Root className="siteRoot"
-     data-sal="slide-right"
-     data-sal-delay="50"
-     data-sal-duration="900"
-     data-sal-easing="ease-in-back">
+>
       <div className="siteContent">
         <Skip href="#main" id="skip-navigation">
           Skip to content
         </Skip>
         <Menu />
-        <Main id="main">{props.children}</Main>
+        <Main 
+        id="main">{children}</Main>
       </div>
       <Global styles={globalStyles} />
     </Root>

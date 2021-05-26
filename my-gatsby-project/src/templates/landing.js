@@ -241,5 +241,5 @@ query MyQuery {
   }
 }
 `
-
+Landing.Layout = Layout 
 export default Landing

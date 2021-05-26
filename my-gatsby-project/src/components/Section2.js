@@ -62,6 +62,7 @@ const SubSection2 = styled.div`
 const Products = styled.div`
   display: grid;
   grid-template-rows: auto auto auto;
+  grid-gap: 1em;
   @media (min-width: ${props => props.theme.responsive.small}) {
     grid-gap: 1em;
   }
@@ -72,7 +73,7 @@ const Products = styled.div`
 `
 
 const Product = styled.div`
-
+border-radius: 0.2em;
  display: grid;
  align-items: end;
  width: 100%;
@@ -163,14 +164,14 @@ return (
         </p>
     </SubSection1>
     <SubSection2>
-      <h3>Apothecary</h3>
-      <p>Loose leaf teas, dry herbs, and skincare solutions produced in-house.</p>
+      <h3>{props.subSection2Title}</h3>
+      <p>{props.subSection2Desc.internal.content}</p>
       <Products>
-      {props.looseLeaf.slice(0,3).map(({ node }) => (
+      {props.apothecaryProduct.map(({ productImage, productName }) => (
         <Product>
-          <img src={node.images[0].url_standard}/>
+          <img src={productImage.file.url}/>
           <div></div>
-          <h3>{node.name}</h3>
+          <h3>{productName}</h3>
         </Product>
       ))}
       </Products>

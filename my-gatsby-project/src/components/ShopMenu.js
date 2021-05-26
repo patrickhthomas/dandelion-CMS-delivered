@@ -87,7 +87,7 @@ justify-content: start;
   max-width: 1060px;
   max-width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: minmax(3em,6em) 3em auto;
+ grid-template-rows: minmax(3em,auto) auto auto;
   overflow: hidden;
   height: 100%;
   transition: all .2s ease-in-out;
@@ -100,6 +100,9 @@ justify-content: start;
       background: ${props => props.theme.colors.primary};
     }
   }  
+@media (min-width: ${props => props.theme.responsive.small}) {
+  grid-template-rows: minmax(3em,auto) auto auto;
+}
   `
   const Description = styled.p`
   
@@ -113,36 +116,20 @@ justify-content: start;
   
   `
   const ProductImage = styled.div`
-  grid-area: a;
-  overflow: hidden;
-  height: 200%;
+  place-self: start;
   display: grid;
+  grid-row: 1 / 3;
+  grid-column: 1 / 4;
   img {
-    min-width: 100%;
-    max-width: 120%;
-    align-self: end;
+    width: 100%;
+    margin: auto;
   }
   @media (min-width: ${props => props.theme.responsive.small}) {
-    img {
-      min-height: 100%;
-      max-width: 100%;
-    }
-  }
+
+}
   @media (min-width: ${props => props.theme.responsive.medium}) {
-    img {
-      min-height: 100%;
-      max-width: 200%;
-      margin: auto;
-      transform: translateY(0%);
-    }
-    @media (min-width: ${props => props.theme.responsive.large}) {
-      img {
-        min-height: 100%;
-        max-width: 120%;
-        margin: auto;
-        transform: translateY(0%);
-      }
-    }
+  transform: translateY(0em);
+}
     `
     const Frost = styled.div`
     grid-area: c;
@@ -154,6 +141,7 @@ justify-content: start;
     width: 100%;
     height: 100%;
     background: ${props => props.theme.colors.fadedPurple};
+    backdrop-filter: blur(1em);
     `
     
     
@@ -174,7 +162,9 @@ justify-content: start;
           {node.sectionProducts.map((sectionProducts, i) =>(
             <Link to={`/${sectionProducts.slug}/`}>
             <div class="child" key={i}>
+
             <ProductImage><img src={sectionProducts.productImage.file.url}/></ProductImage>
+            
             <Frost className="frost">
             <ProductName>{sectionProducts.productName}</ProductName>
             <Description>{sectionProducts.description.childMarkdownRemark.excerpt}</Description>

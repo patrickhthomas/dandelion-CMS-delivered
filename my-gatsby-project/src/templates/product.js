@@ -26,6 +26,8 @@ const ProductTemplate = ({ data, pageContext }) => {
   )
 }
 
+ProductTemplate.Layout = Layout 
+
 export const query = graphql`
   query($slug: String!) {
     contentfulProduct(slug: { eq: $slug }) {

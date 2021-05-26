@@ -17,5 +17,5 @@ const Contact = ({ data }) => {
     </Layout>
   )
 }
-
+Contact.Layout = Layout 
 export default Contact
