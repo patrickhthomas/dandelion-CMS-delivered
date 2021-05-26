@@ -34,7 +34,7 @@ const SubSection = styled.div`
 max-width: 100%;
 display: grid;
 grid-template-columns: 1fr;
-grid-gap: 2em;
+grid-gap: .5em;
 padding-bottom: 2em;
 h3, p {
   padding-bottom: .5em;
@@ -61,6 +61,8 @@ h3, p {
   display: flex;
   img {
       max-width: 100%;
+      border-radius: 1em;
+      padding: .5em;
   }
   @media (min-width: ${props => props.theme.responsive.small}) {
     img {
@@ -77,17 +79,7 @@ h3, p {
       }
     }
     `
-    const Frost = styled.div`
-    grid-area: c;
-    display: flex;
-    padding-top: 1em;
-    padding-bottom: .5em;
-    justify-content: space-evenly;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    background: ${props => props.theme.colors.fadedPurple};
-    `
+
     
     
     const ShopMenu = props => (

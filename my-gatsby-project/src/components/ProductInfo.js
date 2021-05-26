@@ -1,7 +1,6 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import styled from '@emotion/styled'
-import { TiPlusOutline } from 'react-icons/ti'
+import { Link } from "gatsby"
 
 
 
@@ -34,6 +33,13 @@ h3, p {
     padding-bottom: .5em;
 }
 
+ .toFullMenu {
+   padding-top: 1em;
+   padding-left: 1em;
+   font-size: 1.2em;
+   text-shadow: -2px 1px 2px rgba(113, 54, 186, 0.2);
+ }
+
 `
 
 
@@ -51,8 +57,16 @@ width: 100%;
 display: grid;
 grid-gap: 2em;
 justify-content: start;
+p {
+    padding-left: 1em;
+    margin: 0;
+    p{
+        padding-left: 0;
+    }
+}
 @media (min-width: ${props => props.theme.responsive.medium}) {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 @media (min-width: ${props => props.theme.responsive.medium}) {
@@ -60,41 +74,8 @@ justify-content: start;
     padding-bottom: 2em;
     row-gap: 4em;
 }
-.child {
-    width: 90%;
-    border-radius: 1em;
-    box-shadow: 0px 0px 25px rgba(113, 54, 186, 0.2);
-    
-    
-    
-    margin: auto;
-    p, h3 {
-        color: white;
-    }
-    display: grid;
-    grid-template-areas: 
-    "a a a"
-    "b b b"
-    "c c c";
-    align-items: center;
-    max-width: 1060px;
-    max-width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: minmax(3em,6em) 3em auto;
-    overflow: hidden;
-    height: 100%;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    &:hover {
-        transition: all .2s ease-in-out;
-        transform: scale(1.05);
-        .frost {
-            background: ${props => props.theme.colors.primary};
-        }
-    }
-    
-    
+
+
     `
     const Description = styled.p`
     
@@ -113,9 +94,7 @@ justify-content: start;
     width: 100%;
     max-width: 600px;
     img {
-        min-width: 100%;
-        max-width: 120%;
-        align-self: end;
+        width: 100%;
     }
     @media (min-width: ${props => props.theme.responsive.small}) {
         img {
@@ -152,13 +131,16 @@ justify-content: start;
             <Title class="sectionH2">{props.productName}</Title>
             <Product>
             <ProductImage><img src={props.productImage.file.url}/></ProductImage>
+            <div>
             <ProductName>{props.productName}</ProductName>
             <Description dangerouslySetInnerHTML={{ __html: props.description }}></Description>
             <Price>{props.price}</Price>
+            </div>
             
             
             </Product>
-
+            
+<Link className='toFullMenu' to="/menu">&lt; Go to the FULL MENU</Link>
             
             
             </SubSection1>

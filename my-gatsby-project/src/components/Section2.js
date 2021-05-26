@@ -40,6 +40,8 @@ const SubSection1 = styled.div`
    padding-top: 1em;
    align-self: flex-end;
    text-align: right;
+   font-size: 1.2em;
+   text-shadow: -2px 1px 2px rgba(113, 54, 186, 0.2);
  }
 `
 
@@ -55,6 +57,8 @@ const SubSection2 = styled.div`
    padding-top: 1em;
    align-self: flex-end;
    text-align: right;
+   font-size: 1.2em;
+   text-shadow: -2px 1px 2px rgba(113, 54, 186, 0.2);
  }
 `
 
@@ -70,6 +74,9 @@ const Products = styled.div`
     display: flex;
     align-items: stretch;
   }
+  a {
+    text-decoration: none;
+  }
 `
 
 const Product = styled.div`
@@ -80,6 +87,8 @@ border-radius: 0.2em;
  grid-template-columns: 1fr;
  grid-template-rows: minmax(auto 5em) minmax(auto 5em);
  overflow: hidden;
+ padding-left: .5em;
+ padding-right: .5em;
 div {
          content: '';
          z-index: 0;
@@ -151,12 +160,14 @@ return (
       <h3>{props.subSection1Title}</h3>
       <p>{props.subSection1Desc.internal.content}</p>
       <Products>
-      {props.teahouseProduct.map(({ productImage, productName }) => (
+      {props.teahouseProduct.map(({ productImage, productName, slug }) => (
+        <Link to={`/${slug}/`}>
         <Product>
           <img src={productImage.file.url}/>
           <div></div>
           <h3>{productName}</h3>
         </Product>
+        </Link>
       ))}
       </Products>
       <p class="foodDrinkLink">

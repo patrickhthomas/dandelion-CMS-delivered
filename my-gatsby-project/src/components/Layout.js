@@ -109,7 +109,7 @@ section {
   background-size: 100% .2em;
   background-repeat: no-repeat;
   background-position: left 2.5em;
-  transition-delay: 200ms;
+  transition-delay: 100ms;
 
 }
 

@@ -17,12 +17,15 @@ const Form = styled.form`
   align-items: flex-start;
   input,
   textarea {
-    font-family: inherit;
+    font-family: ${props => props.theme.fonts.body};
     font-size: inherit;
-    background: ${props => props.theme.colors.tertiary};
     color: ${props => props.theme.colors.text};
     border-radius: 2px;
     padding: 1em;
+    @media (min-width: ${props => props.theme.responsive.small}) {
+    background: ${props => props.theme.colors.background};
+  }
+    
     &::-webkit-input-placeholder {
       color: gray;
     }
@@ -119,12 +122,13 @@ const Button = styled.div`
   background: ${props => props.theme.colors.text};
   font-size: 1em;
   display: inline-block;
-  margin: 0 auto;
+  margin-left: 3em;
   border: none;
   outline: none;
   cursor: pointer;
   color: white;
   padding: 1em;
+  
   border-radius: 2px;
   text-decoration: none;
   transition: 0.2s;
@@ -134,6 +138,9 @@ const Button = styled.div`
   }
   &:hover {
     background: ${props => props.theme.colors.highlight};
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    padding-left: 1em;
   }
 `
 

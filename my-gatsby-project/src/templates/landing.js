@@ -87,10 +87,7 @@ const Landing = ({ data, pageContext }) => {
           link={link}
           looseLeaf={looseLeaf}
         />
-        <Events
-          id="card"
-          events={events}
-        />
+
         <Section3 
           id="card"
           section={data.contentfulSection3}
@@ -156,6 +153,7 @@ query MyQuery {
         }
       }
       products {
+        slug
         productName
         productImage {
           file {

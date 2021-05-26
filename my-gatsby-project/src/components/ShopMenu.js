@@ -3,9 +3,9 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import { TiPlusOutline } from 'react-icons/ti'
 import { Link } from 'gatsby'
-
-
-
+import Collapsible from 'react-collapsible'
+import Arrow from '../components/Icons/arrow'
+import PdfMenu from '../components/Pdf'
 
 
 const Wrapper = styled.section`
@@ -49,6 +49,51 @@ max-width: 100%;
 padding-top: 2em;
 grid-gap: .5em;
 
+.trigger {
+  border-radius: .5em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 0em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: all .5s ease;
+  h2 {
+    
+  }
+  img {
+    transform: rotate(0deg);
+    transition: all .5s ease;
+  }
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  box-shadow: 0px 0px 10px rgba(113, 54, 186, 0.2);
+  background: ${props => props.theme.colors.background};
+}
+
+.triggerOpened {
+  border-radius: .5em;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  display: flex;
+  img {
+    transform: rotate(90deg);
+    transition: all .5s ease;
+    align-self: center;
+    padding-right: .5em;
+    padding-left: .5em;
+  }
+  box-shadow: 0px 0px 10px rgba(113, 54, 186, 0.2);
+}
+.sectionDescription {
+  padding-bottom: 2em;
+}
+
 `
 
 const Product = styled.div`
@@ -56,18 +101,19 @@ width: 100%;
 display: grid;
 grid-gap: 2em;
 justify-content: start;
-@media (min-width: ${props => props.theme.responsive.medium}) {
-  display: grid;
+@media (min-width: ${props => props.theme.responsive.small}) {
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+  grid-template-rows: minmax(3em,auto) auto auto;
 }
 @media (min-width: ${props => props.theme.responsive.medium}) {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding-bottom: 2em;
   row-gap: 4em;
+  column-gap: .5em;
 }
 .child {
+  background: ${props => props.theme.colors.fadedPurple};
   width: 90%;
   border-radius: 1em;
   box-shadow: 0px 0px 25px rgba(113, 54, 186, 0.2);
@@ -96,15 +142,16 @@ justify-content: start;
   &:hover {
     transition: all .2s ease-in-out;
     transform: scale(1.05);
-        .frost {
+    background: ${props => props.theme.colors.primary};
+      .frost {
       background: ${props => props.theme.colors.primary};
+      transition: all .2s ease-in-out;
     }
   }  
-@media (min-width: ${props => props.theme.responsive.small}) {
-  grid-template-rows: minmax(3em,auto) auto auto;
-}
+
   `
   const Description = styled.p`
+
   
   `
   const Price = styled.p`
@@ -142,21 +189,32 @@ justify-content: start;
     height: 100%;
     background: ${props => props.theme.colors.fadedPurple};
     backdrop-filter: blur(1em);
+    transition: all .2s ease-in-out;
+    `
+
+    const Top = styled.div`
+    display: flex;
+    justify-content: space-between;
     `
     
     
     const ShopMenu = props => (
       
       <Wrapper>
-      
+      <Top>
       <h1>Menu</h1>
-      
+      <PdfMenu/>
+      </Top>
       <SubSection1>
       {props.looseLeaf.map(({ node, index }) => {
         return (
           <Products key={index}>
-          <Title class="sectionH2">{node.sectionTitle}</Title>
-          <p>{node.description.internal.content}</p>
+          <Collapsible trigger={<><Title class="sectionH2">{node.sectionTitle}</Title><Arrow/></>}
+          triggerClassName='trigger'
+          triggerOpenedClassName='triggerOpened'
+          >
+          
+          <p className='sectionDescription'>{node.description.internal.content}</p>
           
           <Product>
           {node.sectionProducts.map((sectionProducts, i) =>(
@@ -174,6 +232,7 @@ justify-content: start;
             </Link>
             ))}
             </Product>
+            </Collapsible>
             </Products>
             )
           })}
