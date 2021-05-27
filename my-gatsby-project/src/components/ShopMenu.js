@@ -58,9 +58,7 @@ grid-gap: .5em;
   display: flex;
   justify-content: space-between;
   transition: all .5s ease;
-  h2 {
-    
-  }
+  max-height: 4em;
   img {
     transform: rotate(0deg);
     transition: all .5s ease;

@@ -59,10 +59,12 @@ h3, p {
 
   const GalleryImage = styled.div`
   display: flex;
+  flex-flow: column wrap;
   img {
-      max-width: 100%;
+      width: 100%;
       border-radius: 1em;
       padding: .5em;
+      height: auto;
   }
   @media (min-width: ${props => props.theme.responsive.small}) {
     img {
