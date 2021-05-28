@@ -3,8 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Collapsible from 'react-collapsible'
-import openMenu from '../../static/images/bars-light.svg'
-import menuButton from '../components/Icons/openMenu'
+import MenuButton from '../components/Icons/openMenu'
 
 
 
@@ -121,15 +120,20 @@ display: block;
 `
 
 
-const bars = menuButton;
+const bars = <MenuButton/>;
 
 const Menu = () => {
   const { menuLinks } = useSiteMetadata()
   return (
     <>
     <SmallContainer>
-    <Collapsible trigger='HUH' 
-
+    <Collapsible trigger={bars} 
+    className='small'
+    openedClassName='small'
+    triggerClassName='trigger'
+    triggerOpenedClassName='triggerOpened'
+    contentOuterClassName='navSmall'
+    overflowWhenOpen='visible'
     >
     <Header>
     <Nav className="navSmall">
