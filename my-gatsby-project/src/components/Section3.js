@@ -82,7 +82,7 @@ return (
   ref={targetRef}
   className={isInViewport ? 'isVisible' : 'isHidden'}
   >
-    <Title class="sectionH2">{props.title}</Title>
+    <Title className="sectionH2">{props.title}</Title>
 
 
     {props.content.map(({ title, entry }) => (

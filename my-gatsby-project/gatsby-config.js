@@ -72,21 +72,6 @@ module.exports = {
           : contentfulConfig.production,
     },
     {
-      resolve: 'gatsby-source-bigcommerce-crosslinked',
-      options: {
-          clientId: '523nik3g6e0iqy683kbdkxp8j648wyq',
-          secret: 'ba62c6d38e9b698665a49fbf84e7bea4f481ac42eeef17552f326e3ec5811824',
-          accessToken: 't02jw3qpfizcxw32lxhipc08ignkc0y',
-          storeHash: 'x9rhio',
-          apiVersion: 'v3',
-          endpoints: {
-            BigCommerceProducts: "/catalog/products?categories=51&include=images,variants,custom_fields,options,modifiers,videos",
-            BigCommerceCategories: "/catalog/categories",
-            BigCommerceBrands: "/catalog/brands",
-        }
-      }
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS,
@@ -115,21 +100,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
-  {
-    resolve: `gatsby-plugin-scroll-reveal`,
-    options: {
-        threshold: .001, // Percentage of an element's area that needs to be visible to launch animation
-        once: true, // Defines if animation needs to be launched once
-        disable: false, // Flag for disabling animations
 
-        // Advanced Options
-        selector: '[data-sal]', // Selector of the elements to be animated
-        animateClassName: 'sal-animate', // Class name which triggers animation
-        disabledClassName: 'sal-disabled', // Class name which defines the disabled state
-        rootMargin: '0% 50%', // Corresponds to root's bounding box margin
-        enterEventName: 'sal:in', // Enter event name
-        exitEventName: 'sal:out', // Exit event name
-    }
-  },
   ],
 }

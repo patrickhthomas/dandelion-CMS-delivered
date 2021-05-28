@@ -12,11 +12,14 @@ display: grid;
      padding-right: 1em;
      padding-top: 1em;
  }
+ @media (min-width: ${props => props.theme.responsive.small}) {
+display: none;
+}
 `
 
 const MenuButton = () => {
   return (
-    <MenuIcon>
+    <MenuIcon className="menuIcon">
     <img src={openMenu}/>
     </MenuIcon>
   )

@@ -94,16 +94,16 @@ return (
   ref={targetRef}
   className={isInViewport ? 'isVisible' : 'isHidden'}
   >
-    <Title class="sectionH2">{props.title}</Title>
-    <div class='divider'>
-    <div class='location'>
-      <Pin class='pin'/>
+    <Title className="sectionH2">{props.title}</Title>
+    <div className='divider'>
+    <div className='location'>
+      <Pin className='pin'/>
       <Address>{props.address}<br></br>{props.city}</Address>
       <Map><img src={props.map.file.url}/></Map>
     </div>
-    <div class='hours'>
-    <Clock class='clock'/>
-    <Address class="hoursTitle">Store Hours</Address>
+    <div className='hours'>
+    <Clock className='clock'/>
+    <Address className="hoursTitle">Store Hours</Address>
     <Hours>
     {props.days.map(({ node }, i) => (
       <Day>

@@ -50,7 +50,7 @@ a{
 `
 
 const ContactCard = props => {
-  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20})
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: 1})
   return (
     
     <Wrapper

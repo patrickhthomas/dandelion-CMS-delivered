@@ -44,8 +44,7 @@ const Landing = ({ data, pageContext }) => {
   //establishes variables for Events
   const events = data.allContentfulEvent.edges
 
-  //establishes variables for LooseLeaf BigCommerceProducts
-  const looseLeaf = data.allBigCommerceProducts.edges
+
 
 
   return (
@@ -85,7 +84,6 @@ const Landing = ({ data, pageContext }) => {
           city={cityStateZip}
           map={map}
           link={link}
-          looseLeaf={looseLeaf}
         />
 
         <Section3 
@@ -221,21 +219,6 @@ query MyQuery {
     facebook
     instagram
     phoneNumber
-  }
-  allBigCommerceProducts {
-    edges {
-      node {
-        id
-        name
-        images {
-          url_standard
-          url_thumbnail
-          image_file
-        }
-        price
-        description
-      }
-    }
   }
 }
 `

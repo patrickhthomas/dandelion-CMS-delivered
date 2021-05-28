@@ -155,7 +155,7 @@ return (
     ref={targetRef}
   className={isInViewport ? 'isVisible' : 'isHidden'}
   >
-    <Title class="sectionH2">{props.title}</Title>
+    <Title className="sectionH2">{props.title}</Title>
     <SubSection1>
       <h3>{props.subSection1Title}</h3>
       <p>{props.subSection1Desc.internal.content}</p>
@@ -170,7 +170,7 @@ return (
         </Link>
       ))}
       </Products>
-      <p class="foodDrinkLink">
+      <p className="foodDrinkLink">
         <Link to="/menu">View our full food and drink menu &gt;</Link>
         </p>
     </SubSection1>
@@ -186,7 +186,7 @@ return (
         </Product>
       ))}
       </Products>
-      <p class="apothecaryLink">
+      <p className="apothecaryLink">
         <a target={target} rel={rel} href="https://www.giftsfromtheearth.com/dandelion-teahouse-apothecary/">View all apothecary items at our Gifts from the Earth website &gt;</a>
         
       </p>

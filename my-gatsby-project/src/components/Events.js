@@ -152,25 +152,25 @@ return (
   ref={targetRef}
   className={isInViewport ? 'isVisible' : 'isHidden'}
   >
-    <Title class="sectionH2">Events</Title>
+    <Title className="sectionH2">Events</Title>
     <EventList>
     {props.events.map(({ node }, i) => (
       <Event>
         <div>
           <ConvertDate date={node.startTime} />
           <ConvertTime start={node.startTime} end={node.endTime} />
-          <h3 class="eventTitle">{node.title}</h3>
+          <h3 className="eventTitle">{node.title}</h3>
         </div>
-        <div class="imageContainer">
+        <div className="imageContainer">
             <img src={node.image.file.url} alt={node.image.description} />
         </div>
-        <div class="description">
+        <div className="description">
             <p>{node.description.childMarkdownRemark.excerpt}</p>
         </div>
       </Event>
     ))}
     </EventList>
-    <div class="moreEventsLink"><p>View all upcoming events &gt;</p></div>
+    <div className="moreEventsLink"><p>View all upcoming events &gt;</p></div>
   </Wrapper>
 )}
 

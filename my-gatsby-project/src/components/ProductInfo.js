@@ -128,7 +128,7 @@ p {
             
             <SubSection1>
 
-            <Title class="sectionH2">{props.productName}</Title>
+            <Title className="sectionH2">{props.productName}</Title>
             <Product>
             <ProductImage><img src={props.productImage.file.url}/></ProductImage>
             <div>

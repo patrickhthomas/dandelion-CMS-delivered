@@ -3,30 +3,9 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Collapsible from 'react-collapsible'
-import MenuButton from '../components/Icons/openMenu'
+import openMenu from '../../static/images/bars-light.svg'
+import menuButton from '../components/Icons/openMenu'
 
-
-const Container = styled.div`
-.trigger {
-  display: flex;
-  justify-content: end;
-  img {   
-  }
-  cursor: pointer;
-}
-
-.large {
-  display: none;
-}
-@media (min-width: ${props => props.theme.responsive.small}) {
-  .small {
-    display: none;
-  }
-  .large {
-    display: block;
-  }
-}
-`
 
 
 const Nav = styled.nav`
@@ -103,19 +82,54 @@ padding: 1.5em 0;
 }
 `
 
-const bars = <MenuButton/>;
+const SmallContainer = styled.div`
+.trigger {
+  display: flex;
+  justify-content: end;
+  img {   
+  }
+  cursor: pointer;
+}
+display: block;
+
+
+
+@media (min-width: ${props => props.theme.responsive.small}) {
+display: none;
+.menuIcon {
+  display: none;
+}
+}
+`
+
+const LargeContainer = styled.div`
+.trigger {
+  display: flex;
+  justify-content: end;
+  img {   
+  }
+  cursor: pointer;
+}
+display: none;
+.menuIcon {
+  display: none;
+}
+
+@media (min-width: ${props => props.theme.responsive.small}) {
+display: block;
+}
+`
+
+
+const bars = menuButton;
 
 const Menu = () => {
   const { menuLinks } = useSiteMetadata()
   return (
-    <Container>
-    <Collapsible trigger={bars} 
-    className='small'
-    openedClassName='small'
-    triggerClassName='trigger'
-    triggerOpenedClassName='triggerOpened'
-    contentOuterClassName='navSmall'
-    overflowWhenOpen='visible'
+    <>
+    <SmallContainer>
+    <Collapsible trigger='HUH' 
+
     >
     <Header>
     <Nav className="navSmall">
@@ -136,7 +150,9 @@ const Menu = () => {
       </Nav>
       </Header>
       </Collapsible>
-      <div className='large'>
+      </SmallContainer>
+      <LargeContainer>
+      <div >
       <Header>
       <Nav>
       <ul>
@@ -158,7 +174,8 @@ const Menu = () => {
         </Nav>
         </Header>
         </div>
-        </Container>
+        </LargeContainer>
+        </>
         )
       }
       

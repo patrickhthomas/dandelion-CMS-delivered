@@ -13,7 +13,7 @@ const MenuPage = ({ data, pageContext }) => {
   const { basePath } = pageContext
 
 
-  //establishes variables for LooseLeaf BigCommerceProducts
+
   const looseLeaf = data.allContentfulMenuSection.edges
 
 

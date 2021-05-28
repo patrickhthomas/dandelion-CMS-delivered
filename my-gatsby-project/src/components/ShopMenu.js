@@ -207,7 +207,7 @@ justify-content: start;
       {props.looseLeaf.map(({ node, index }) => {
         return (
           <Products key={index}>
-          <Collapsible trigger={<><Title class="sectionH2">{node.sectionTitle}</Title><Arrow/></>}
+          <Collapsible trigger={<><Title className="sectionH2">{node.sectionTitle}</Title><Arrow/></>}
           triggerClassName='trigger'
           triggerOpenedClassName='triggerOpened'
           >
@@ -217,14 +217,14 @@ justify-content: start;
           <Product>
           {node.sectionProducts.map((sectionProducts, i) =>(
             <Link to={`/${sectionProducts.slug}/`}>
-            <div class="child" key={i}>
+            <div className="child" key={i}>
 
             <ProductImage><img src={sectionProducts.productImage.file.url}/></ProductImage>
             
             <Frost className="frost">
             <ProductName>{sectionProducts.productName}</ProductName>
             <Description>{sectionProducts.description.childMarkdownRemark.excerpt}</Description>
-            <Price>${sectionProducts.price}</Price>
+            <Price>{sectionProducts.price}</Price>
             </Frost>
             </div>
             </Link>
