@@ -23,6 +23,10 @@ div {
   grid-gap: 2em;
   padding-top: 1em;
 }
+
+.email {
+  font-size: 1em;
+}
 `
 
 
@@ -50,7 +54,7 @@ a{
 `
 
 const ContactCard = props => {
-  const [isInViewport, targetRef] = useIsInViewport({ threshold: 1})
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: .001})
   return (
     
     <Wrapper
@@ -59,7 +63,7 @@ const ContactCard = props => {
     >
     <Subtitle>Contact us</Subtitle>
     <div className="grid">
-    <ContactLine><a href={"mailto:" + props.info.email}>{props.info.email}</a></ContactLine>
+    <ContactLine className="email"><a href={"mailto:" + props.info.email}>{props.info.email}</a></ContactLine>
     <ContactLine>{props.info.phoneNumber}</ContactLine>
     <ContactLine>
     

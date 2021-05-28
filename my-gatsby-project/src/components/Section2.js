@@ -148,7 +148,7 @@ const target = '_blank';
 const rel = 'noopener' + ' ' + 'noreferrer';
 
 const Section2 = props =>  {
-  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20 })
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: .001 })
 return (
 
   <Wrapper

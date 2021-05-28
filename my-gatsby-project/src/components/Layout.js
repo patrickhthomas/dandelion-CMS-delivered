@@ -42,7 +42,7 @@ const Root = styled.div`
    
   }
   h3 {
-    font-family: ${props => props.theme.fonts.headerBold};
+    font-family: ${props => props.theme.fonts.header};
     font-size: 1.25em;
     line-height: 120%;
     text-transform: uppercase;
@@ -128,7 +128,7 @@ section {
 }
 `
 
-const Layout = ({children}) => {
+const Layout = ({children, props}) => {
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
       document.body.classList.add('user-is-tabbing')
@@ -147,6 +147,7 @@ const Layout = ({children}) => {
         <Menu />
         <Main 
         id="main">{children}</Main>
+        <Footer/>
       </div>
       <Global styles={globalStyles} />
     </Root>

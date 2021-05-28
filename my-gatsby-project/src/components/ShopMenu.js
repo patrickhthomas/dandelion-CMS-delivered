@@ -27,7 +27,7 @@ a {
   text-decoration: none;
 }
 `
-const Title = styled.h2`
+const Title = styled.h3`
 `
 
 const SubSection1 = styled.div`
@@ -48,6 +48,7 @@ display: grid;
 max-width: 100%;
 padding-top: 2em;
 grid-gap: .5em;
+
 
 .trigger {
   border-radius: .5em;

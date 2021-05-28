@@ -145,7 +145,7 @@ function ConvertTime(props) {
 
 
 const Events = props => {
-  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20})
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: .001})
 return (
 
   <Wrapper

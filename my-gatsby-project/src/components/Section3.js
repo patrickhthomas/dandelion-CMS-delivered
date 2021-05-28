@@ -75,7 +75,7 @@ p:first-child {
 
 
 const Section1 = props => {
-  const [isInViewport, targetRef] = useIsInViewport({ threshold: 20 })
+  const [isInViewport, targetRef] = useIsInViewport({ threshold: .001 })
 return (
 
   <Wrapper

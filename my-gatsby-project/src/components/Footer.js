@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import productPatLogo from '../../static/images/productPatLogo.png'
+import { Link } from 'gatsby'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Wrapper = styled.footer`
   display: flex;
@@ -30,6 +33,7 @@ const Item = styled.li`
   }
   a {
     font-weight: 600;
+    font-size: .8em;
     transition: all 0.2s;
     color: ${props => props.theme.colors.text};
     &:hover {
@@ -41,41 +45,50 @@ const Item = styled.li`
   }
 `
 
-const Footer = () => (
+const patLogo = productPatLogo
+
+const Footer = () => {
+  const { basePath } = useSiteMetadata()
+  return (
   <Wrapper>
     <List>
       <Item>
+      <Link to='/'>Home</Link>
+      </Item>
+      <Item>
+      <Link to='/menu/'>Menu</Link>
+      </Item>
+      <Item>
+      <Link to='/gallery/'>Gallery</Link>
+      </Item>
+      <Item>
         <a
-          href="https://www.contentful.com/"
+          href="https://www.giftsfromtheearth.com/"
           rel="nofollow noopener noreferrer"
           target="_blank"
+          style={{ padding: '0em', fontSize: '.6em' }}
         >
-          <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
-            style={{ width: '100px' }}
-            alt="Powered by Contentful"
-          />
+          Gifts from the Earth
         </a>
       </Item>
       <Item>
         <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
+          href="https://www.patrickthomas.design/"
+          rel="nofollow noopener noreferrer"
           target="_blank"
-          rel="noopener noreferrer"
+          style={{ padding: '0em', fontSize: '.6em' }}
         >
-          gatsby-starter-gcn
-        </a>{' '}
-        by{' '}
-        <a
-          href="https://github.com/ryanwiemer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @ryanwiemer
+
+          Copyright &copy; 2021 Patrick Thomas Design All Rights Reserved
+          <img
+            src={patLogo}
+            style={{ width: '2em' }}
+            alt="Product Pat Logo"
+          />
         </a>
       </Item>
     </List>
   </Wrapper>
-)
+)}
 
 export default Footer

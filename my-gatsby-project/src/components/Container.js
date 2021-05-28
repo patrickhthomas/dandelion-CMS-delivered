@@ -11,7 +11,11 @@ const Wrapper = styled.div`
     padding: 3em 1.5em 2em;
   }
   .sectionH2 {
-     border-bottom: 1px solid ${props => props.theme.colors.tertiary};
+     border-bottom: 0px solid ${props => props.theme.colors.tertiary};
+     font-size: 1.5em;
+       @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.75em;
+  }
   }
 `
 

@@ -7,7 +7,7 @@ width: 100%;
 margin: 0;
 display: grid;
  img {
-     max-width: 4em;
+     max-width: 3em;
      justify-self: end;
      padding-right: 1em;
      padding-top: 1em;

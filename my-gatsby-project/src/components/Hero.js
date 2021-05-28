@@ -21,6 +21,7 @@ const Title = styled.h1`
   z-index: 1;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
+  margin-bottom: -.3em;
 `
 
 const Blurb = styled.p`
@@ -132,7 +133,6 @@ const Tagline = styled.h3`
 
 const Hero = props => (
   <Wrapper className='overrideInView'>
-    <Title>{props.title}</Title>
     <HeroImg><img src={props.image.file.url} alt={props.alt} /></HeroImg>
     <Title>{props.title}</Title>
     <Subtitle>{props.subtitle}</Subtitle>
