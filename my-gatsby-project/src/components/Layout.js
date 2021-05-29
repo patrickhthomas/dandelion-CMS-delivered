@@ -146,8 +146,10 @@ const Layout = ({children, props}) => {
         </Skip>
         <Menu />
         <Main 
-        id="main">{children}</Main>
+        id="main">{children}
         <Footer/>
+        </Main>
+        
       </div>
       <Global styles={globalStyles} />
     </Root>

@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Wrapper = styled.footer`
+  position: static;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

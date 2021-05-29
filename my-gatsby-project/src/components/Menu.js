@@ -82,6 +82,7 @@ padding: 1.5em 0;
 `
 
 const SmallContainer = styled.div`
+position: static;
 .trigger {
   display: flex;
   justify-content: end;
@@ -102,6 +103,7 @@ display: none;
 `
 
 const LargeContainer = styled.div`
+position: static;
 .trigger {
   display: flex;
   justify-content: end;

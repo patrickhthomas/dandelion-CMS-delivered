@@ -12,6 +12,7 @@ display: grid;
      padding-right: 1em;
      padding-top: 1em;
  }
+ background: ${props => props.theme.colors.highlightLess}
  @media (min-width: ${props => props.theme.responsive.small}) {
 display: none;
 }
