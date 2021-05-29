@@ -5,6 +5,7 @@ import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import Footer from '../components/Footer'
 
 const Text = styled.p`
   text-align: center;
@@ -24,6 +25,7 @@ const NotFoundPage = () => (
         different page.
       </Text>
     </Container>
+    <Footer />
   </Layout>
 )
 

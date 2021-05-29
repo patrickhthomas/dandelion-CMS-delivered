@@ -6,6 +6,7 @@ import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
 import styled from '@emotion/styled'
 import ContactPageCard from '../components/ContactPageCard'
+import Footer from '../components/Footer'
 
 const Title=styled.h1`
 width: 100%;
@@ -25,6 +26,7 @@ const Contact = ({ data }) => {
         info={data.contentfulContact}
         />
       </Container>
+      <Footer />
     </Layout>
   )
 }

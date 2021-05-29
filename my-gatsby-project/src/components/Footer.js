@@ -12,6 +12,7 @@ const Wrapper = styled.footer`
   align-items: flex-start;
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidth};
+  padding-bottom: 4em;
 `
 
 const List = styled.ul`

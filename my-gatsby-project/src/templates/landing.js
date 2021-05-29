@@ -10,6 +10,7 @@ import ContactCard from '../components/ContactCard'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
+import Footer from '../components/Footer'
 
 const Landing = ({ data, pageContext }) => {
   const { basePath } = pageContext
@@ -95,6 +96,7 @@ const Landing = ({ data, pageContext }) => {
         <ContactCard 
         id="card"
         info={data.contentfulContact}/>
+        <Footer />
       </Container>
     </Layout>
   )

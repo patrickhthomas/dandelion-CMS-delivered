@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ProductInfo from '../components/ProductInfo'
+import Footer from '../components/Footer'
 
 const ProductTemplate = ({ data, pageContext }) => {
   const {
@@ -22,6 +23,7 @@ const ProductTemplate = ({ data, pageContext }) => {
      productName={productName}
 
      />
+     <Footer />
     </Layout>
   )
 }

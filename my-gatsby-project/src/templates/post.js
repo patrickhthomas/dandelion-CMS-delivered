@@ -8,6 +8,7 @@ import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDetails from '../components/PostDetails'
 import SEO from '../components/SEO'
+import Footer from '../components/Footer'
 
 const PostTemplate = ({ data, pageContext }) => {
   const {
@@ -32,7 +33,8 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-<div>HELLO ITS POST!!</div>
+<div>Nothing to see here!</div>
+<Footer />
     </Layout>
   )
 }

@@ -6,6 +6,7 @@ import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import Footer from '../components/Footer'
 
 const GalleryPage = ({ data, pageContext }) => {
 
@@ -22,6 +23,7 @@ const GalleryPage = ({ data, pageContext }) => {
       <Container>
         <Gallery gallery={gallery} basePath={basePath}/>
       </Container>
+      <Footer />
     </Layout>
   )
 }

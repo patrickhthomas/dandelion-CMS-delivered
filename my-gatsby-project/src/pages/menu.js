@@ -6,6 +6,7 @@ import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import Footer from '../components/Footer'
 
 
 const MenuPage = ({ data, pageContext }) => {
@@ -23,6 +24,7 @@ const MenuPage = ({ data, pageContext }) => {
       <Container>
         <ShopMenu looseLeaf={looseLeaf} basePath={basePath}/>
       </Container>
+      <Footer />
     </Layout>
   )
 }
