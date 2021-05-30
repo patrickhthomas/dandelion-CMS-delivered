@@ -54,7 +54,7 @@ const Root = styled.div`
     font-family: ${props => props.theme.fonts.body};
     font-size: 1em;
   }
-  overflow-x: hidden;
+
   ul,
   li {
     list-style: none;
