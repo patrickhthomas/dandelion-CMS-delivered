@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Pdf from '../../static/images/TeahouseMenu.pdf'
 import PdfIcon from '../components/Icons/pdfIcon'
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 const PdfLink = styled.a`
 display: flex;
@@ -14,10 +15,12 @@ class PdfMenu extends Component {
   render() {
 
     return (
-        <PdfLink href = {Pdf} target = "_blank">
+      <Link to={'/pdfMenu'} >
+        <PdfLink>
           <PdfIcon/>
           <p>View the PDF Version &gt;</p>
         </PdfLink>
+      </Link>
     );
 
   }

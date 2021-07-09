@@ -7,22 +7,29 @@ import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Footer from '../components/Footer'
+import styled from '@emotion/styled'
+
+const MenuPage = styled.img`
+max-width: 100%;
+`
 
 
-const GalleryPage = ({ data, pageContext }) => {
+const PdfMenuPage = ({ data, pageContext }) => {
 
   const { basePath } = pageContext
 
 
   //establishes variables for LooseLeaf BigCommerceProducts
-  const gallery = data.contentfulGallery
+  const menu = data.contentfulPdfMenu
 
 
   return (
     <Layout>
       <SEO title={startCase(basePath)}/>
       <Container>
-        <Gallery gallery={gallery} basePath={basePath}/>
+       {menu.files.map(file => (
+            <MenuPage src={file.file.url}/>
+        ))}
       </Container>
       <Footer />
     </Layout>
@@ -30,7 +37,7 @@ const GalleryPage = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-query GalleryQuery {
+query PdfMenuQuery {
   contentfulGallery {
     images {
       file {
@@ -46,11 +53,20 @@ query GalleryQuery {
     }
     title
   }
+  contentfulPdfMenu {
+      files {
+          file {
+              url
+          }
+      }
+  }
 }
 
 
 `
 
 
-GalleryPage.Layout = Layout 
-export default GalleryPage
+PdfMenuPage.Layout = Layout 
+export default PdfMenuPage
+
+

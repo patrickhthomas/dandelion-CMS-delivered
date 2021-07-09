@@ -82,8 +82,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
+        name: 'Dandelion Teahouse Apothecary',
+        short_name: 'Dandelion',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
