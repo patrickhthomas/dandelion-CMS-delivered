@@ -8,6 +8,7 @@ import { startCase } from 'lodash'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Footer from '../components/Footer'
 
+
 const GalleryPage = ({ data, pageContext }) => {
 
   const { basePath } = pageContext

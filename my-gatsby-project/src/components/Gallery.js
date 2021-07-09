@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import { TiPlusOutline } from 'react-icons/ti'
 import { Link } from 'gatsby'
+import CustomCarousel3 from '../components/Carousel3'
 
 
 
@@ -89,17 +90,13 @@ h3, p {
       <Wrapper>
       
       <Title>{props.gallery.title}</Title>
-      <Description>{props.gallery.description.description}</Description>
-      <SubSection>
-
-      {props.gallery.images.map(( images ) => (
 
 
-            <GalleryImage><img src={images.file.url}/></GalleryImage>
-     
-      ))}
+      <CustomCarousel3
+      alias = {props.gallery}
+      />
           
-          </SubSection>
+
           
           
           </Wrapper>
